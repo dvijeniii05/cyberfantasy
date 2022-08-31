@@ -8,19 +8,16 @@
  * @format
  */
 
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {
-  View,
-} from 'react-native';
-import HomeScreen from './src/screens/HomeScreen/HomeScreen';
+import AppDrawer from './src/navigation/AppDrawer';
 
 const App = () => {
-  return(
-<NavigationContainer>
-  <HomeScreen/>
-</NavigationContainer>
-  )
+  return (
+    <NavigationContainer>
+      <AppDrawer />
+    </NavigationContainer>
+  );
 };
 
 export default App;
