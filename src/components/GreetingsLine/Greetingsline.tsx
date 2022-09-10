@@ -1,15 +1,17 @@
-import React from 'react'
-import { Text, View } from 'react-native'
-import { styles } from './Greetingsline.styles'
+import React from 'react';
+import {Text, View} from 'react-native';
+import {styles} from './Greetingsline.styles';
 
-const GreetingLine = () => {
-    return(
-        <View style={styles.backgroundContainer}>
-            <Text style={styles.textStyle}>
-                Hi Jalya
-            </Text>
-        </View>
-    )
+interface Props {
+  userName: string;
 }
 
-export default GreetingLine
+const GreetingLine = (props: Props) => {
+  return (
+    <View style={styles.backgroundContainer}>
+      <Text style={styles.textStyle}>Hi, {props.userName}</Text>
+    </View>
+  );
+};
+
+export default GreetingLine;

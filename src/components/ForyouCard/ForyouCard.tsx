@@ -1,13 +1,17 @@
-import React from 'react'
-import { View } from 'react-native'
-import { styles } from './ForyouCard.styles'
+import React from 'react';
+import {Text, View} from 'react-native';
+import {styles} from './ForyouCard.styles';
 
 interface Props {
-    
+  content: string;
 }
 
-const ForyouCard = () => {
-    return(<View style={styles.mainContainer}/>)
-}
+const ForyouCard = (props: Props) => {
+  return (
+    <View style={styles.mainContainer}>
+      <Text>{props.content}</Text>
+    </View>
+  );
+};
 
-export default ForyouCard
+export default ForyouCard;
