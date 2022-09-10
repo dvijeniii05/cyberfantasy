@@ -11,6 +11,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import AppDrawer from './src/navigation/AppDrawer';
+import './i18';
 
 const App = () => {
   return (

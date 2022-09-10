@@ -4,12 +4,14 @@ import ForyouCard from '../../components/ForyouCard/ForyouCard';
 import GreetingLine from '../../components/GreetingsLine/Greetingsline';
 import Products from '../../components/Products/Products';
 import {styles} from './HomeScreen.styles';
+import {useTranslation} from 'react-i18next';
 
 const HomeScreen = () => {
+  const {t} = useTranslation();
   return (
     <SafeAreaView style={styles.backgroundContainer}>
       <GreetingLine userName="User" />
-      <ForyouCard content="Here is a list of items we picked specially for you according to your answers and preferences" />
+      <ForyouCard content={t('forYouCard.text')} />
       <Products />
     </SafeAreaView>
   );
