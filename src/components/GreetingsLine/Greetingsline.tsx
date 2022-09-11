@@ -9,7 +9,7 @@ interface Props {
 const GreetingLine = (props: Props) => {
   return (
     <View style={styles.backgroundContainer}>
-      <Text style={styles.textStyle}>Hi, {props.userName}</Text>
+      <Text style={styles.textStyle}>Welcome back {props.userName}</Text>
     </View>
   );
 };

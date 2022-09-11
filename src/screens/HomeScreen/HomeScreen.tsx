@@ -10,7 +10,7 @@ const HomeScreen = () => {
   const {t} = useTranslation();
   return (
     <SafeAreaView style={styles.backgroundContainer}>
-      <GreetingLine userName="User" />
+      <GreetingLine userName="Jalya" />
       <ForyouCard content={t('forYouCard.text')} />
       <Products />
     </SafeAreaView>

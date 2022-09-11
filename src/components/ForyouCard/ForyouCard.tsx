@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {ImageBackground, Text, TouchableHighlight, View} from 'react-native';
 import {styles} from './ForyouCard.styles';
 
 interface Props {
@@ -9,7 +9,15 @@ interface Props {
 const ForyouCard = (props: Props) => {
   return (
     <View style={styles.mainContainer}>
-      <Text>{props.content}</Text>
+      <ImageBackground
+        source={require('../../assets/ExploreHome1.jpeg')}
+        style={styles.imageBackground}
+        resizeMode="cover"
+      >
+        <TouchableHighlight style={styles.buttonBackground}>
+          <Text>{props.content}</Text>
+        </TouchableHighlight>
+      </ImageBackground>
     </View>
   );
 };
