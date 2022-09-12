@@ -20,12 +20,19 @@ const imageBackground: ViewStyle = {
 
 const buttonBackground: ViewStyle = {
   height: 60,
-  backgroundColor: 'rgba(255, 255, 255, 0.4)',
-  borderRadius: 10,
+  padding:5,
+  backgroundColor: 'rgba(255,255,255,0.5)',
+  borderRadius:10
+
 };
+
+const bluredImage: ViewStyle = {
+    borderRadius:10
+}
 
 export const styles = {
   mainContainer,
   imageBackground,
   buttonBackground,
+  bluredImage
 };
