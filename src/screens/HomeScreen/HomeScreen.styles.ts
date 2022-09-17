@@ -4,6 +4,7 @@ import {COLORS} from '../../../COLORS';
 const backgroundContainer: ViewStyle = {
   backgroundColor: COLORS.white,
   flex: 1,
+  alignItems:'center'
 };
 
 export const styles = {

@@ -2,6 +2,7 @@ import React from "react";
 import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./ForyouCard.styles";
 import { BlurView } from "@react-native-community/blur";
+import ProceedButton from "../ProceedButton/ProceedButton";
 
 interface Props {
   content: string;
@@ -15,11 +16,12 @@ const ForyouCard = (props: Props) => {
         style={styles.imageBackground}
         resizeMode="cover"
       >
-        {/* <BlurView blurType="light" style={styles.bluredImage}> */}
-        <TouchableOpacity style={styles.buttonBackground}>
-          <Text>{props.content}</Text>
-        </TouchableOpacity>
-        {/* </BlurView> */}
+        <BlurView blurType="light" style={styles.bluredImage}>
+          <TouchableOpacity style={styles.buttonBackground}>
+            <Text style={styles.textContainer}>{props.content}</Text>
+            <ProceedButton />
+          </TouchableOpacity>
+        </BlurView>
       </ImageBackground>
     </View>
   );

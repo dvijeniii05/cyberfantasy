@@ -1,38 +1,45 @@
-import {ViewStyle} from 'react-native';
+import {TextStyle, ViewStyle} from 'react-native';
 import {COLORS} from '../../../COLORS';
+import { WIDTH } from '../../constants/dimension';
 
 const mainContainer: ViewStyle = {
-  backgroundColor: COLORS.lightGreen,
   height: 200,
-  marginHorizontal: 25,
-  marginTop: 20,
-  borderRadius: 20,
-  // borderWidth: 1,
-  // borderColor: COLORS.darkGrey,
+  width: WIDTH*0.9,
   overflow: 'hidden',
+  backgroundColor:'red',
+  borderRadius:20,
+  marginTop:10
 };
 
 const imageBackground: ViewStyle = {
-  flex: 1,
-  justifyContent: 'flex-end',
-  padding: 20,
+    flex:1,
+    justifyContent:'flex-end',
+    padding:15
 };
 
 const buttonBackground: ViewStyle = {
-  height: 60,
-  padding:5,
-  backgroundColor: 'rgba(255,255,255,0.5)',
-  borderRadius:10
-
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-evenly'
 };
 
+const textContainer: TextStyle = {
+    width:'80%',
+}
+
 const bluredImage: ViewStyle = {
-    borderRadius:10
+    height:80,
+    width:'100%',
+    borderRadius:10,
+    padding: 5,
+
 }
 
 export const styles = {
   mainContainer,
   imageBackground,
   buttonBackground,
-  bluredImage
+  bluredImage,
+  textContainer
 };
