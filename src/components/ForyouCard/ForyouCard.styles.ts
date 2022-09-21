@@ -3,12 +3,11 @@ import {COLORS} from '../../../COLORS';
 import { WIDTH } from '../../constants/dimension';
 
 const mainContainer: ViewStyle = {
-  height: 200,
-  width: WIDTH*0.9,
+  height: 0.52*WIDTH,
+  width:0.9*WIDTH,
   overflow: 'hidden',
-  backgroundColor:'red',
   borderRadius:20,
-  marginTop:10
+  marginTop:10,
 };
 
 const imageBackground: ViewStyle = {

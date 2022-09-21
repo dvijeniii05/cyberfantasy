@@ -1,14 +1,19 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { create } from "react-test-renderer";
-import ForyouCard from "./ForyouCard";
+import ForyouCard, { Props } from "./ForyouCard";
 
-describe("initial", () => {
-  test("render", () => {
-    const tree = create(<ForyouCard />);
+const defaultProps: Props = {
+  content: "some-string",
+};
+
+describe("Cemponent", () => {
+  test("initial render", () => {
+    const tree = create(<ForyouCard {...defaultProps} />);
 
     const text = tree.root.findByProps({
-      testID: "text-check",
+      testID: "foryoucard-text",
     });
-    expect(text.props.children).toBe("test-text");
+    expect(text.props.children).toBe("some-string");
   });
 });

@@ -7,6 +7,7 @@ import { styles } from "./HomeScreen.styles";
 import { useTranslation } from "react-i18next";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { TabParams } from "../../navigation/navigationTypes";
+import HeaderDivider from "../../components/HeaderDivider/HeaderDivider";
 
 type NavigationProps = BottomTabScreenProps<TabParams, "Home">;
 
@@ -16,6 +17,7 @@ const HomeScreen = (navigation: NavigationProps) => {
     <SafeAreaView style={styles.backgroundContainer}>
       <GreetingLine userName="Jalya" />
       <ForyouCard content={t("forYouCard.text")} />
+      <HeaderDivider label="New products" />
       <Products />
     </SafeAreaView>
   );

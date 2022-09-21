@@ -4,7 +4,7 @@ import { styles } from "./ForyouCard.styles";
 import { BlurView } from "@react-native-community/blur";
 import ProceedButton from "../ProceedButton/ProceedButton";
 
-interface Props {
+export interface Props {
   content: string;
 }
 
@@ -17,8 +17,13 @@ const ForyouCard = (props: Props) => {
         resizeMode="cover"
       >
         <BlurView blurType="light" style={styles.bluredImage}>
-          <TouchableOpacity style={styles.buttonBackground}>
-            <Text style={styles.textContainer}>{props.content}</Text>
+          <TouchableOpacity
+            testID="foryoucard-button"
+            style={styles.buttonBackground}
+          >
+            <Text style={styles.textContainer} testID="foryoucard-text">
+              {props.content}
+            </Text>
             <ProceedButton />
           </TouchableOpacity>
         </BlurView>
