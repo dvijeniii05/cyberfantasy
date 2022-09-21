@@ -1,8 +1,8 @@
-import React from "react";
-import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
-import { styles } from "./ForyouCard.styles";
-import { BlurView } from "@react-native-community/blur";
-import ProceedButton from "../ProceedButton/ProceedButton";
+import React from 'react';
+import {ImageBackground, Text, TouchableOpacity, View} from 'react-native';
+import {styles} from './ForyouCard.styles';
+import {BlurView} from '@react-native-community/blur';
+import ProceedButton from '../ProceedButton/ProceedButton';
 
 export interface Props {
   content: string;
@@ -12,7 +12,7 @@ const ForyouCard = (props: Props) => {
   return (
     <View style={styles.mainContainer}>
       <ImageBackground
-        source={require("../../assets/Explore7.jpeg")}
+        source={require('../../assets/Explore7.jpeg')}
         style={styles.imageBackground}
         resizeMode="cover"
       >

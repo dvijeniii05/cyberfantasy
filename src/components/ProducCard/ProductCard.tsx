@@ -1,6 +1,6 @@
-import React from "react";
-import { Text, View } from "react-native";
-import { styles } from "./ProductCard.style";
+import React from 'react';
+import {Text, View} from 'react-native';
+import {styles} from './ProductCard.style';
 
 interface ItemProps {
   desc: string;
@@ -10,8 +10,8 @@ interface ItemProps {
 const ProductCard = (props: ItemProps) => {
   return (
     <View style={styles.productContainer}>
-      <Text>{props.image}</Text>
-      <Text>{props.desc}</Text>
+      <Text style={styles.descriptionStyle}>{props.image}</Text>
+      <Text style={styles.descriptionStyle}>{props.desc}</Text>
     </View>
   );
 };

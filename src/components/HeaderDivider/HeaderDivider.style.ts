@@ -1,17 +1,28 @@
-import { TextStyle, ViewStyle } from "react-native";
-import { WIDTH } from "../../constants/dimension";
+import {TextStyle, ViewStyle} from 'react-native';
+import {HomeScreenDefaultWidth} from '../../constants/dimension';
 
-const parentContainer:ViewStyle = {
-    width: WIDTH*0.9,
-    marginTop: 15
-}
+const parentContainer: ViewStyle = {
+  width: HomeScreenDefaultWidth,
+  marginTop: 15,
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+};
 
-const textStyle: TextStyle = {
-    fontSize:16,
-    fontWeight:'600'
-}
+const leftTextStyle: TextStyle = {
+  fontSize: 16,
+  fontWeight: '600',
+};
+
+const rightTextStyle: TextStyle = {
+  fontSize: 14,
+};
+
+const viewAllButton: ViewStyle = {};
 
 export const styles = {
-    parentContainer,
-    textStyle
-}
+  parentContainer,
+  leftTextStyle,
+  rightTextStyle,
+  viewAllButton,
+};

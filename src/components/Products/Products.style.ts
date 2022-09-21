@@ -1,14 +1,12 @@
 import {ViewStyle} from 'react-native';
+import {HomeScreenDefaultWidth} from '../../constants/dimension';
 
 const parentContainer: ViewStyle = {
-  backgroundColor: 'green',
-  height: 150,
+  height: 0.45 * HomeScreenDefaultWidth,
+  width: HomeScreenDefaultWidth,
   marginTop: 20,
-  marginHorizontal: 25,
 };
 
-
-
 export const styles = {
-  parentContainer
+  parentContainer,
 };
