@@ -6,6 +6,7 @@ import ProceedButton from '../ProceedButton/ProceedButton';
 
 export interface Props {
   content: string;
+  onPress?: () => void;
 }
 
 const ForyouCard = (props: Props) => {
@@ -20,6 +21,7 @@ const ForyouCard = (props: Props) => {
           <TouchableOpacity
             testID="foryoucard-button"
             style={styles.buttonBackground}
+            onPress={props.onPress}
           >
             <Text style={styles.textContainer} testID="foryoucard-text">
               {props.content}

@@ -7,10 +7,12 @@ const productContainer: ViewStyle = {
   marginHorizontal: 5,
   justifyContent: 'space-between',
   borderRadius: 10,
+  paddingHorizontal:4
 };
 
 const descriptionStyle: TextStyle = {
   fontSize: 14,
+  flexShrink:1
 };
 
 export const styles = {

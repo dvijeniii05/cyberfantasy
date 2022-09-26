@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './ProductCard.style';
 
 interface ItemProps {
@@ -9,10 +9,10 @@ interface ItemProps {
 
 const ProductCard = (props: ItemProps) => {
   return (
-    <View style={styles.productContainer}>
+    <TouchableOpacity style={styles.productContainer} onPress={() => {}}>
       <Text style={styles.descriptionStyle}>{props.image}</Text>
       <Text style={styles.descriptionStyle}>{props.desc}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

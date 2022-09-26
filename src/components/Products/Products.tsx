@@ -10,6 +10,7 @@ const Products = () => {
       <FlatList
         data={DUMMY_POSTS}
         renderItem={({item}) => ProductCard(item)}
+        showsHorizontalScrollIndicator={false}
         horizontal
       />
     </View>

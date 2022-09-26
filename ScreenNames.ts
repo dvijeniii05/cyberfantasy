@@ -11,4 +11,5 @@ export enum TabScreenNames {
   Home = "Home",
   Account = "Account",
   Browse = "Browse",
+  PersonalCard = "PersonalCard"
 }
