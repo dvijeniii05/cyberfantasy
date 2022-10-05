@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {StackScreenNames} from '../../ScreenNames';
 import BottomTab from './BottomTab';
 import {StackParams} from './navigationTypes';
 
-const Stack = createNativeStackNavigator<StackParams>();
+const Stack = createStackNavigator<StackParams>();
 
 const AppDrawer = () => {
   const [isAuthed, setIsAuthed] = useState(true);

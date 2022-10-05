@@ -8,6 +8,7 @@ import {useTranslation} from 'react-i18next';
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {TabParams} from '../../navigation/navigationTypes';
 import HeaderDivider from '../../components/HeaderDivider/HeaderDivider';
+import {TabScreenNames} from '../../../ScreenNames';
 
 type NavigationProps = BottomTabScreenProps<TabParams, 'Home'>;
 
@@ -18,7 +19,7 @@ const HomeScreen = ({navigation}: NavigationProps) => {
       <GreetingLine userName="Jalya" />
       <ForyouCard
         content={t('forYouCard.text')}
-        onPress={() => navigation.navigate('PersonalCard')}
+        onPress={() => navigation.navigate(TabScreenNames.PersonalCard)}
       />
       <HeaderDivider label="New products" />
       <Products />
