@@ -8,6 +8,8 @@ import AccountScreen from '../screens/AccountScreen/AccountScreen';
 import PersonalCardScreen from '../screens/PersonalCard/PersonalCardScreen';
 import {styles} from './BottomTab.style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {View} from 'react-native';
+import {COLORS} from '../../COLORS';
 
 const Tab = createBottomTabNavigator<TabParams>();
 
@@ -19,20 +21,42 @@ const BottomTab = () => {
           headerShown: false,
           tabBarStyle: styles.screenOption,
           tabBarShowLabel: false,
-          tabBarIconStyle: {
-            backgroundColor: 'black',
-          },
+          tabBarActiveTintColor: COLORS.lightGreen,
         }}
       >
         <Tab.Screen
           name={TabScreenNames.Home}
           component={HomeScreen}
           options={{
-            tabBarIcon: () => <AntDesign name="home" size={25} />,
+            tabBarIcon: ({color}) => (
+              <View style={styles.iconStyle}>
+                <AntDesign name="home" size={30} color={color} />
+              </View>
+            ),
           }}
         />
-        <Tab.Screen name={TabScreenNames.Account} component={AccountScreen} />
-        <Tab.Screen name={TabScreenNames.Browse} component={BrowseScreen} />
+        <Tab.Screen
+          name={TabScreenNames.Account}
+          component={AccountScreen}
+          options={{
+            tabBarIcon: ({color}) => (
+              <View style={styles.iconStyle}>
+                <AntDesign name="staro" size={30} color={color} />
+              </View>
+            ),
+          }}
+        />
+        <Tab.Screen
+          name={TabScreenNames.Browse}
+          component={BrowseScreen}
+          options={{
+            tabBarIcon: ({color}) => (
+              <View style={styles.iconStyle}>
+                <AntDesign name="bulb1" size={30} color={color} />
+              </View>
+            ),
+          }}
+        />
         <Tab.Screen
           name={TabScreenNames.PersonalCard}
           component={PersonalCardScreen}

@@ -1,16 +1,22 @@
 import {ViewStyle} from 'react-native';
-import {WIDTH} from '../constants/dimension';
+import { COLORS } from '../../COLORS';
 
 const screenOption: ViewStyle = {
-  backgroundColor: 'red',
-  width: 0.8 * WIDTH,
+  position: 'absolute',
   alignSelf: 'center',
-  bottom: 40,
-  borderRadius: 30,
-  justifyContent: 'center',
-  alignItems: 'center',
+  marginHorizontal: 40,
+  bottom: 30,
+  height:60,
+  borderRadius:30,
+  backgroundColor:COLORS.darkGrey,
 };
+
+const iconStyle: ViewStyle = {
+  position: 'absolute',
+  top: '50%',
+}
 
 export const styles = {
   screenOption,
+  iconStyle
 };

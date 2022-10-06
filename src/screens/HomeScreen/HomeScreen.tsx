@@ -23,6 +23,8 @@ const HomeScreen = ({navigation}: NavigationProps) => {
       />
       <HeaderDivider label="New products" />
       <Products />
+      <HeaderDivider label="Most popular" />
+      <Products />
     </SafeAreaView>
   );
 };
