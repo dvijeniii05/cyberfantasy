@@ -4,6 +4,8 @@ export type StackParams = {
   AuthScreen: undefined;
   Questionnaire: undefined;
   SignIn: undefined;
+  KnownTypePick: undefined;
+  AdditionalQuestions: undefined;
 };
 
 export type TabParams = {

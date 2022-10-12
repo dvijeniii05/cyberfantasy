@@ -3,6 +3,8 @@ export enum StackScreenNames {
   SignUp = 'SignUp',
   SignIn = 'SignIn',
   Questionnaire = 'Questionnaire',
+  KnownTypePick = 'KnownTypePick',
+  AdditionalQuestions = 'AdditionalQuestions',
   BottomTab = 'BottomTab',
 }
 

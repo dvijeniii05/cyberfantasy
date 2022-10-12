@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {StackScreenNames} from '../../ScreenNames';
 import BottomTab from './BottomTab';
 import {StackParams} from './navigationTypes';
+import KnownTypePick from '../screens/KnownTypePick/KnownTypePick';
 
 const Stack = createStackNavigator<StackParams>();
 
@@ -11,7 +12,10 @@ const AppDrawer = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {isAuthed ? (
-        <Stack.Screen name={StackScreenNames.BottomTab} component={BottomTab} />
+        <Stack.Screen
+          name={StackScreenNames.BottomTab}
+          component={KnownTypePick}
+        />
       ) : (
         <>
           <Stack.Screen
@@ -29,6 +33,14 @@ const AppDrawer = () => {
           <Stack.Screen
             name={StackScreenNames.Questionnaire}
             component={QuestionnaireScreen}
+          />
+          <Stack.Screen
+            name={StackScreenNames.KnownTypePick}
+            component={KnownTypePick}
+          />
+          <Stack.Screen
+            name={StackScreenNames.AdditionalQuestions}
+            component={AdditionalQuestions}
           />
         </>
       )}
