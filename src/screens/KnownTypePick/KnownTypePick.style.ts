@@ -1,10 +1,12 @@
-import { ViewStyle } from "react-native";
+import {ViewStyle} from 'react-native';
+import {COLORS} from '../../../COLORS';
 
 const backgroundContainer: ViewStyle = {
-    backgroundColor: 'red',
-    flex: 1
-}
+  backgroundColor: COLORS.lightGreen,
+  flex: 1,
+  alignItems: 'center',
+};
 
 export const styles = {
-    backgroundContainer
-}
+  backgroundContainer,
+};
