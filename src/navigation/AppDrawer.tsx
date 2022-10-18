@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {StackScreenNames} from '../../ScreenNames';
 import BottomTab from './BottomTab';
 import {StackParams} from './navigationTypes';
-import KnownTypePick from '../screens/KnownTypePick/KnownTypePick';
+import KnownTypePick from '../screens/KnownTypePickScreen/KnownTypePickScreen';
 
 const Stack = createStackNavigator<StackParams>();
 

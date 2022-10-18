@@ -1,12 +1,22 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {View, Text, Pressable} from 'react-native';
+import AnimatedColor from '../AnimatedColor/AnimatedColor';
 import {styles} from './PickTypeCard.style';
 
-const PickTypeCard = () => {
+interface Props {
+  text: string;
+}
+
+const PickTypeCard = (props: Props) => {
+  const [pressed, setPresssed] = useState<boolean>(false);
   return (
-    <View style={styles.parentContainer}>
-      <Text style={styles.textStyle}>Some info is here</Text>
-    </View>
+    <Pressable
+      style={styles.parentContainer}
+      onPress={() => setPresssed(!pressed)}
+    >
+      <AnimatedColor pressed={pressed} text={props.text} />
+    </Pressable>
   );
 };
 
