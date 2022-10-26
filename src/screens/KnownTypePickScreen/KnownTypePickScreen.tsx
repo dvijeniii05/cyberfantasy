@@ -1,18 +1,20 @@
 import React from 'react';
 import {FlatList, ListRenderItem, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {StackScreenNames} from '../../../ScreenNames';
 import AnimatedColorButton from '../../components/AnimatedColorButton/AnimatedColorButton';
 import DefaultButton from '../../components/DefaultButton/DefaultButton';
-import ProceedButton from '../../components/ProceedButtonImage/ProceedButtonImage';
 import {KnownIssuesData} from '../../constants/KnownIssuesData';
 import {styles} from './KnownTypePickScreen.style';
+
+// type Props = StackScreenProps<TabParams>;
 
 interface ItemType {
   key: number;
   text: string;
 }
 
-const KnownTypePickScreen = (navigation: any) => {
+const KnownTypePickScreen = ({navigation}) => {
   const renderItem: ListRenderItem<ItemType> = ({item}) => {
     return <AnimatedColorButton text={item.text} style={styles.cardStyle} />;
   };
@@ -28,7 +30,7 @@ const KnownTypePickScreen = (navigation: any) => {
         contentContainerStyle={styles.contentContainerStyle}
         style={styles.listStyle}
       />
-      <DefaultButton />
+      <DefaultButton onPress={() => {}} />
     </SafeAreaView>
   );
 };

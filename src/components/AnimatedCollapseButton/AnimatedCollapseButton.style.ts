@@ -2,7 +2,7 @@ import {TextStyle, ViewStyle} from 'react-native';
 import {COLORS} from '../../../COLORS';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
 
-const pressableStyle: ViewStyle = {
+const parentView: ViewStyle = {
   width: '100%',
   height: '100%',
 };
@@ -24,14 +24,14 @@ const textContainer: TextStyle = {
 const chevronLeft: ViewStyle = {
   height: '100%',
   justifyContent: 'center',
-  alignItems:'center'
+  alignItems: 'center',
 };
 
 const chevronRight: ViewStyle = {
-    height: '100%',
-    justifyContent: 'center',
-    alignItems:'center'
-  };
+  height: '100%',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
 
 const parentContainer: ViewStyle = {
   height: 0.4 * HomeScreenDefaultWidth,
@@ -43,12 +43,11 @@ const parentContainer: ViewStyle = {
   borderColor: COLORS.darkGrey,
 };
 
-
 export const styles = {
   innerContainer,
   parentContainer,
   chevronLeft,
   chevronRight,
   textContainer,
-  pressableStyle,
+  parentView,
 };

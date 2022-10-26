@@ -13,10 +13,20 @@ const AppDrawer = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {isAuthed ? (
-        <Stack.Screen
-          name={StackScreenNames.BottomTab}
-          component={InitialPickScreen}
-        />
+        <>
+          <Stack.Screen
+            name={StackScreenNames.BottomTab}
+            component={BottomTab}
+          />
+          <Stack.Screen
+            name={StackScreenNames.InitialPick}
+            component={InitialPickScreen}
+          />
+          <Stack.Screen
+            name={StackScreenNames.KnownTypePick}
+            component={KnownTypePick}
+          />
+        </>
       ) : (
         <>
           <Stack.Screen
@@ -35,10 +45,7 @@ const AppDrawer = () => {
             name={StackScreenNames.Questionnaire}
             component={QuestionnaireScreen}
           />
-          <Stack.Screen
-            name={StackScreenNames.KnownTypePick}
-            component={KnownTypePick}
-          />
+
           <Stack.Screen
             name={StackScreenNames.AdditionalQuestions}
             component={AdditionalQuestions}

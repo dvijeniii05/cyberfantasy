@@ -14,6 +14,8 @@ import {styles} from './AnimatedCollapseButton.style';
 interface Props {
   text?: string;
   style?: StyleProp<any>;
+  // navigation: StackNavigationProp<StackParams>;
+  navigation: () => void;
 }
 
 const AnimatedCollapseButton = (props: Props) => {
@@ -56,21 +58,24 @@ const AnimatedCollapseButton = (props: Props) => {
       ]}
     >
       {/* TODO: make parent view not pressable, and icons into pressables + touchalbe for text? */}
-      <Pressable
-        style={styles.pressableStyle}
-        onPress={() => setCollapsed(!collapsed)}
+      <View
+        style={styles.parentView}
+        // onPress={() => setCollapsed(!collapsed)}
       >
         {collapsed ? (
-          <View style={styles.chevronRight}>
+          <Pressable
+            style={styles.chevronRight}
+            onPress={() => setCollapsed(!collapsed)}
+          >
             <MaterialIcons
               name="chevron-right"
               size={35}
               color={COLORS.primary_light}
             />
-          </View>
+          </Pressable>
         ) : (
           <View style={styles.innerContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={props.navigation}>
               <Animated.Text
                 style={[
                   styles.textContainer,
@@ -81,17 +86,20 @@ const AnimatedCollapseButton = (props: Props) => {
               </Animated.Text>
             </TouchableOpacity>
             {!collapsed ? (
-              <View style={styles.chevronLeft}>
+              <Pressable
+                style={styles.chevronLeft}
+                onPress={() => setCollapsed(!collapsed)}
+              >
                 <MaterialIcons
                   name="chevron-left"
                   size={35}
                   color={COLORS.primary}
                 />
-              </View>
+              </Pressable>
             ) : null}
           </View>
         )}
-      </Pressable>
+      </View>
     </Animated.View>
   );
 };

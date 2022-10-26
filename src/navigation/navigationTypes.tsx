@@ -6,6 +6,7 @@ export type StackParams = {
   SignIn: undefined;
   KnownTypePick: undefined;
   AdditionalQuestions: undefined;
+  InitialPick: undefined;
 };
 
 export type TabParams = {

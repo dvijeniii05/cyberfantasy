@@ -1,5 +1,7 @@
 {
     "translation": {
+        "initialPick_KnownIsssues_button_text": "Press here if you are aware of your skin type. You will be promted to pick your problems and issues.",
+        "initialPick_ProceedToTest_button_text": "Press here if you would like to complete a questionare to determine your skin type and pressent problems.",
         "test.text": "something here",
         "viewAll.text": "View all",
         "forYouCard.text": "Here is a list of items we picked specially for you according to your answers and preferences",

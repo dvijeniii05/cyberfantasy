@@ -1,21 +1,31 @@
+import {StackNavigationProp, StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {ImageBackground, Text, View} from 'react-native';
+import {StackScreenNames} from '../../../ScreenNames';
 import AnimatedCollapseButton from '../../components/AnimatedCollapseButton/AnimatedCollapseButton';
 import AnimatedColorButton from '../../components/AnimatedColorButton/AnimatedColorButton';
+import {StackParams} from '../../navigation/navigationTypes';
 import {styles} from './InitialPickScreen.style';
 
-const InitialPickScreen = () => (
-  <ImageBackground
-    style={styles.parentContainer}
-    source={require('../../assets/pick1.jpg')}
-  >
-    <AnimatedCollapseButton
-      text={`Press here if you are aware of your skin type. You will be promted to pick your problems and issues.`}
-    />
-    <AnimatedCollapseButton
-      text={`Press here if you would like to complete a questionare to determine your skin type and pressent problems.`}
-    />
-  </ImageBackground>
-);
+type Props = StackScreenProps<StackParams>;
+
+const InitialPickScreen = ({navigation}: Props) => {
+  const {t} = useTranslation();
+  return (
+    <ImageBackground
+      style={styles.parentContainer}
+      source={require('../../assets/pick1.jpg')}
+    >
+      <AnimatedCollapseButton
+        text={t('initialPick_KnownIsssues_button_text')}
+        navigation={() => navigation.navigate(StackScreenNames.KnownTypePick)}
+      />
+      <AnimatedCollapseButton
+        text={t('initialPick_ProceedToTest_button_text')}
+      />
+    </ImageBackground>
+  );
+};
 
 export default InitialPickScreen;

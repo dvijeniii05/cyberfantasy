@@ -2,6 +2,7 @@ export enum StackScreenNames {
   AuthScreen = 'AuthScreen',
   SignUp = 'SignUp',
   SignIn = 'SignIn',
+  InitialPick = 'InitialPick',
   Questionnaire = 'Questionnaire',
   KnownTypePick = 'KnownTypePick',
   AdditionalQuestions = 'AdditionalQuestions',

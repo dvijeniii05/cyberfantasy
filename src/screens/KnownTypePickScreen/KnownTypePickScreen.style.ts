@@ -2,6 +2,10 @@ import {TextStyle, ViewStyle} from 'react-native';
 import {COLORS} from '../../../COLORS';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
 
+const imageBackgrouContainer: ViewStyle = {
+  flex: 1,
+};
+
 const backgroundContainer: ViewStyle = {
   backgroundColor: COLORS.primary,
   flex: 1,
@@ -16,12 +20,11 @@ const contentContainerStyle: ViewStyle = {
 };
 
 const listStyle: ViewStyle = {
-  marginVertical: 10
-}
+  marginVertical: 10,
+};
 
 const cardStyle: ViewStyle = {
   marginVertical: 10,
-
 };
 
 const headingContainer: ViewStyle = {
@@ -33,6 +36,7 @@ const headingstyle: TextStyle = {
 };
 
 export const styles = {
+  imageBackgrouContainer,
   backgroundContainer,
   contentContainerStyle,
   listStyle,
