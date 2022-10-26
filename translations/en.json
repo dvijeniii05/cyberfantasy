@@ -7,7 +7,9 @@
         "dummyText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "knownType_DrySkin_text": "Dry skin - skin looks and feels rough, itchy, flaky or scaly. Also known as xerosis or xeroderma.",
         "knownType_OilySkin_text": "Oily skin - your face can get shiny as the day progresses. Pores may be more visible and are more likely to suffer acne breakouts.",
-        "knownType_CombinedSkin_text": "Combined skin - can be dry or normal in some areas, but oily in others, like the T-zone",
-        "knownType_NormalSkin_text": "Normal skin - regular texture, no or few imperfections and a soft appearance. Well-balanced"
+        "knownType_CombinedSkin_text": "Combined skin - can be dry or normal in some areas, but oily in others, like the T-zone.",
+        "knownType_NormalSkin_text": "Normal skin - regular texture, no or few imperfections and a soft appearance. Well-balanced.",
+        "knownType_AgingSkin_text": "Aging skin - looks thinner, paler and clear. Pigmented spots may appear in sun-exposed areas."
+        
     }
 }

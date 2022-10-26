@@ -2,7 +2,7 @@ import React from 'react';
 import {ImageBackground, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './ForyouCard.styles';
 import {BlurView} from '@react-native-community/blur';
-import ProceedButton from '../ProceedButton/ProceedButton';
+import ProceedButton from '../ProceedButtonImage/ProceedButtonImage';
 
 export interface Props {
   content: string;

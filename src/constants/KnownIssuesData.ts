@@ -18,5 +18,9 @@ export const KnownIssuesData = [
 {
     key: 3,
     text: t('knownType_NormalSkin_text')
+},
+{
+    key: 4,
+    text: t('knownType_AgingSkin_text')
 }
 ]

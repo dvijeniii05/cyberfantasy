@@ -9,15 +9,19 @@ const backgroundContainer: ViewStyle = {
   justifyContent: 'center', //REMOVE ONCE FINISHED STYLING
 };
 
-const listStyle: ViewStyle = {
+const contentContainerStyle: ViewStyle = {
   flex: 1,
-  marginTop: 10,
   width: HomeScreenDefaultWidth,
   alignItems: 'center',
 };
 
+const listStyle: ViewStyle = {
+  marginVertical: 10
+}
+
 const cardStyle: ViewStyle = {
   marginVertical: 10,
+
 };
 
 const headingContainer: ViewStyle = {
@@ -30,6 +34,7 @@ const headingstyle: TextStyle = {
 
 export const styles = {
   backgroundContainer,
+  contentContainerStyle,
   listStyle,
   cardStyle,
   headingContainer,

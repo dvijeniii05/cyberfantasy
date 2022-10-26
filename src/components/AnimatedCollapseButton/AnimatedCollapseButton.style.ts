@@ -17,18 +17,24 @@ const innerContainer: ViewStyle = {
 };
 
 const textContainer: TextStyle = {
-  width: HomeScreenDefaultWidth * 0.7,
+  width: HomeScreenDefaultWidth * 0.8,
   fontSize: 16,
 };
 
-const iconContainer: ViewStyle = {
+const chevronLeft: ViewStyle = {
   height: '100%',
-  width: '15%',
   justifyContent: 'center',
+  alignItems:'center'
 };
 
+const chevronRight: ViewStyle = {
+    height: '100%',
+    justifyContent: 'center',
+    alignItems:'center'
+  };
+
 const parentContainer: ViewStyle = {
-  height: 0.3 * HomeScreenDefaultWidth,
+  height: 0.4 * HomeScreenDefaultWidth,
   borderRadius: 0.08 * HomeScreenDefaultWidth,
   overflow: 'hidden',
   alignItems: 'center',
@@ -41,7 +47,8 @@ const parentContainer: ViewStyle = {
 export const styles = {
   innerContainer,
   parentContainer,
-  iconContainer,
+  chevronLeft,
+  chevronRight,
   textContainer,
   pressableStyle,
 };

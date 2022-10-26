@@ -15,7 +15,7 @@ interface Props {
   style?: StyleProp<any>;
 }
 
-const AnimatedColor = (props: Props) => {
+const AnimatedColorButton = (props: Props) => {
   // const [showIcon, setShowIcon] = useState<boolean>(false);
   const [pressed, setPressed] = useState<boolean>(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -33,7 +33,7 @@ const AnimatedColor = (props: Props) => {
   return (
     <Animated.View
       style={[
-        styles.pressableStyle,
+        styles.parentContainer,
         props.style,
         {
           backgroundColor: stringChangeFunction(
@@ -52,7 +52,7 @@ const AnimatedColor = (props: Props) => {
       ]}
     >
       <Pressable
-        style={styles.parentContainer}
+        style={styles.pressableStyle}
         onPress={() => setPressed(!pressed)}
       >
         <View style={styles.innerContainer}>
@@ -66,7 +66,7 @@ const AnimatedColor = (props: Props) => {
           </Animated.Text>
           {pressed ? (
             <View style={styles.iconContainer}>
-              <MaterialIcons name="check" size={30} color={COLORS.primary} />
+              <MaterialIcons name="check" size={35} color={COLORS.primary} />
             </View>
           ) : null}
         </View>
@@ -75,4 +75,4 @@ const AnimatedColor = (props: Props) => {
   );
 };
 
-export default AnimatedColor;
+export default AnimatedColorButton;
