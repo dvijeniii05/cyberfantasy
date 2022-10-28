@@ -9,7 +9,7 @@ const parentContainer: ViewStyle = {
     alignItems:'center',
     borderRadius:10,
     paddingVertical:15,
-    shadowOffset: {width: 0, height:0},
+    shadowOffset: {width: 20, height:20},
     shadowColor: COLORS.secondary,
     shadowRadius:15,
     shadowOpacity: 1

@@ -1,3 +1,5 @@
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
+import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
 import {FlatList, ListRenderItem, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -5,16 +7,17 @@ import {StackScreenNames} from '../../../ScreenNames';
 import AnimatedColorButton from '../../components/AnimatedColorButton/AnimatedColorButton';
 import DefaultButton from '../../components/DefaultButton/DefaultButton';
 import {KnownIssuesData} from '../../constants/KnownIssuesData';
+import {StackParams, TabParams} from '../../navigation/navigationTypes';
 import {styles} from './KnownTypePickScreen.style';
 
-// type Props = StackScreenProps<TabParams>;
+type Props = StackScreenProps<StackParams, StackScreenNames.KnownTypePick>;
 
 interface ItemType {
   key: number;
   text: string;
 }
 
-const KnownTypePickScreen = ({navigation}) => {
+const KnownTypePickScreen = ({navigation}: Props) => {
   const renderItem: ListRenderItem<ItemType> = ({item}) => {
     return <AnimatedColorButton text={item.text} style={styles.cardStyle} />;
   };
@@ -30,7 +33,13 @@ const KnownTypePickScreen = ({navigation}) => {
         contentContainerStyle={styles.contentContainerStyle}
         style={styles.listStyle}
       />
-      <DefaultButton onPress={() => {}} />
+      <DefaultButton
+        onPress={() =>
+          navigation.navigate('BottomTab', {
+            Screen: 'Home',
+          })
+        }
+      />
     </SafeAreaView>
   );
 };

@@ -15,10 +15,6 @@ const AppDrawer = () => {
       {isAuthed ? (
         <>
           <Stack.Screen
-            name={StackScreenNames.BottomTab}
-            component={BottomTab}
-          />
-          <Stack.Screen
             name={StackScreenNames.InitialPick}
             component={InitialPickScreen}
           />
@@ -26,10 +22,14 @@ const AppDrawer = () => {
             name={StackScreenNames.KnownTypePick}
             component={KnownTypePick}
           />
+          <Stack.Screen
+            name={StackScreenNames.BottomTab}
+            component={BottomTab}
+          />
         </>
       ) : (
         <>
-          <Stack.Screen
+          {/* <Stack.Screen
             name={StackScreenNames.AuthScreen}
             component={AuthScreen}
           />
@@ -49,7 +49,7 @@ const AppDrawer = () => {
           <Stack.Screen
             name={StackScreenNames.AdditionalQuestions}
             component={AdditionalQuestions}
-          />
+          /> */}
         </>
       )}
     </Stack.Navigator>

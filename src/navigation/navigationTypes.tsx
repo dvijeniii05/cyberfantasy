@@ -1,5 +1,7 @@
 export type StackParams = {
-  BottomTab: undefined;
+  BottomTab: {
+    Screen: string;
+  };
   SignUp: undefined;
   AuthScreen: undefined;
   Questionnaire: undefined;
