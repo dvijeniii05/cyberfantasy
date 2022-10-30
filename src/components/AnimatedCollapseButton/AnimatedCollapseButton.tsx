@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Animated, Pressable, StyleProp, View} from 'react-native';
+import {Animated, Pressable, StyleProp, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {COLORS} from '../../../COLORS';
@@ -8,6 +8,7 @@ import {
   numberChangeFunction,
   stringChangeFunction,
 } from '../../animation/AnimationFunction';
+import {FontNames} from '../../assets/FontsNames';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
 import {styles} from './AnimatedCollapseButton.style';
 
@@ -19,15 +20,12 @@ interface Props {
 }
 
 const AnimatedCollapseButton = (props: Props) => {
-  // const [showIcon, setShowIcon] = useState<boolean>(false);
   const [collapsed, setCollapsed] = useState<boolean>(true);
   const fadeAnim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     if (!collapsed) {
-      // setShowIcon(true);
       fadingFunction(1, fadeAnim);
     } else {
-      // setShowIcon(false);
       fadingFunction(0, fadeAnim);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -57,11 +55,7 @@ const AnimatedCollapseButton = (props: Props) => {
         },
       ]}
     >
-      {/* TODO: make parent view not pressable, and icons into pressables + touchalbe for text? */}
-      <View
-        style={styles.parentView}
-        // onPress={() => setCollapsed(!collapsed)}
-      >
+      <View style={styles.parentView}>
         {collapsed ? (
           <Pressable
             style={styles.chevronRight}
@@ -82,6 +76,9 @@ const AnimatedCollapseButton = (props: Props) => {
                   {color: stringChangeFunction('black', 'white', fadeAnim)},
                 ]}
               >
+                <Text
+                  style={{fontFamily: FontNames.mainFont}}
+                >{`Press here `}</Text>
                 {props.text}
               </Animated.Text>
             </TouchableOpacity>

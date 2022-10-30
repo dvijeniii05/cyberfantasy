@@ -3,7 +3,7 @@ export type StackParams = {
     Screen: string;
   };
   SignUp: undefined;
-  AuthScreen: undefined;
+  Landing: undefined;
   Questionnaire: undefined;
   SignIn: undefined;
   KnownTypePick: undefined;

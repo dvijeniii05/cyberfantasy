@@ -5,6 +5,7 @@ import BottomTab from './BottomTab';
 import {StackParams} from './navigationTypes';
 import KnownTypePick from '../screens/KnownTypePickScreen/KnownTypePickScreen';
 import InitialPickScreen from '../screens/InitialPickScreen/InitialPickScreen';
+import LandingScreen from '../screens/LandingScreen/LandingScreen';
 
 const Stack = createStackNavigator<StackParams>();
 
@@ -14,6 +15,10 @@ const AppDrawer = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {isAuthed ? (
         <>
+          <Stack.Screen
+            name={StackScreenNames.Landing}
+            component={LandingScreen}
+          />
           <Stack.Screen
             name={StackScreenNames.InitialPick}
             component={InitialPickScreen}

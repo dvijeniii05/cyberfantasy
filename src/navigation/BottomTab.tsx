@@ -5,7 +5,7 @@ import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import {TabParams} from './navigationTypes';
 import BrowseScreen from '../screens/BrowseScreen/BrowseScreen';
 import AccountScreen from '../screens/AccountScreen/AccountScreen';
-import PersonalCardScreen from '../screens/PersonalCard/PersonalCardScreen';
+import PersonalCardScreen from '../screens/PersonalCardScreen/PersonalCardScreen';
 import {styles} from './BottomTab.style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {View} from 'react-native';

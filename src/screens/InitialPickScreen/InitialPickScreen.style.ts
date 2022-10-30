@@ -3,7 +3,6 @@ import {COLORS} from '../../../COLORS';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
 
 const parentContainer: ViewStyle = {
-  backgroundColor: COLORS.primary,
   flex: 1,
   justifyContent: 'space-evenly',
   alignItems: 'flex-start',

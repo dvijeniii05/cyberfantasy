@@ -1,5 +1,5 @@
 export enum StackScreenNames {
-  AuthScreen = 'AuthScreen',
+  Landing = 'Landing',
   SignUp = 'SignUp',
   SignIn = 'SignIn',
   InitialPick = 'InitialPick',

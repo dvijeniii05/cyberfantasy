@@ -1,5 +1,6 @@
 import {TextStyle, ViewStyle} from 'react-native';
 import {COLORS} from '../../../COLORS';
+import { FontNames } from '../../assets/FontsNames';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
 
 const imageBackgrouContainer: ViewStyle = {
@@ -32,7 +33,8 @@ const headingContainer: ViewStyle = {
 };
 
 const headingstyle: TextStyle = {
-  fontSize: 30,
+  fontSize: 28,
+  fontFamily: FontNames.mainFont
 };
 
 export const styles = {

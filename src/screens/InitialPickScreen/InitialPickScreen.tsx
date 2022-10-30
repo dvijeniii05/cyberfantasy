@@ -1,10 +1,9 @@
-import {StackNavigationProp, StackScreenProps} from '@react-navigation/stack';
+import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {ImageBackground, Text, View} from 'react-native';
+import {ImageBackground} from 'react-native';
 import {StackScreenNames} from '../../../ScreenNames';
 import AnimatedCollapseButton from '../../components/AnimatedCollapseButton/AnimatedCollapseButton';
-import AnimatedColorButton from '../../components/AnimatedColorButton/AnimatedColorButton';
 import {StackParams} from '../../navigation/navigationTypes';
 import {styles} from './InitialPickScreen.style';
 

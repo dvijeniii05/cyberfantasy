@@ -1,5 +1,6 @@
 import { TextStyle, ViewStyle } from "react-native";
 import { COLORS } from "../../../COLORS";
+import { FontNames } from "../../assets/FontsNames";
 import { HomeScreenDefaultWidth } from "../../constants/dimension";
 
 const parentContainer: ViewStyle = {
@@ -17,7 +18,8 @@ const parentContainer: ViewStyle = {
 
 const textStyle: TextStyle = {
     fontSize:16,
-    color:COLORS.primary_light
+    color:COLORS.primary_light,
+
 }
 
 export const styles = {

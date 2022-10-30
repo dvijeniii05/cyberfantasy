@@ -34,6 +34,7 @@ const KnownTypePickScreen = ({navigation}: Props) => {
         style={styles.listStyle}
       />
       <DefaultButton
+        label='Save'
         onPress={() =>
           navigation.navigate('BottomTab', {
             Screen: 'Home',
