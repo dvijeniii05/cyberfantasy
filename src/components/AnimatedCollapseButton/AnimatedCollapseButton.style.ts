@@ -1,5 +1,6 @@
 import {TextStyle, ViewStyle} from 'react-native';
 import {COLORS} from '../../../COLORS';
+import {FontNames} from '../../assets/FontsNames';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
 
 const parentView: ViewStyle = {
@@ -19,6 +20,10 @@ const innerContainer: ViewStyle = {
 const textContainer: TextStyle = {
   width: HomeScreenDefaultWidth * 0.8,
   fontSize: 16,
+};
+
+const pressHereStyle: TextStyle = {
+  fontFamily: FontNames.mainFont,
 };
 
 const chevronLeft: ViewStyle = {
@@ -50,4 +55,5 @@ export const styles = {
   chevronRight,
   textContainer,
   parentView,
+  pressHereStyle,
 };

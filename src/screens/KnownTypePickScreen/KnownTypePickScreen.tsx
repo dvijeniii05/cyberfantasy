@@ -1,7 +1,13 @@
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {FlatList, ListRenderItem, Text, View} from 'react-native';
+import {
+  FlatList,
+  ImageBackground,
+  ListRenderItem,
+  Text,
+  View,
+} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {StackScreenNames} from '../../../ScreenNames';
 import AnimatedColorButton from '../../components/AnimatedColorButton/AnimatedColorButton';
@@ -34,12 +40,13 @@ const KnownTypePickScreen = ({navigation}: Props) => {
         style={styles.listStyle}
       />
       <DefaultButton
-        label='Save'
+        label="Save"
         onPress={() =>
           navigation.navigate('BottomTab', {
             Screen: 'Home',
           })
         }
+        customFont={true}
       />
     </SafeAreaView>
   );

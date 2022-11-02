@@ -51,7 +51,7 @@ const AnimatedCollapseButton = (props: Props) => {
           ),
         },
         {
-          opacity: numberChangeFunction(1, 0.8, fadeAnim),
+          opacity: numberChangeFunction(1, 0.85, fadeAnim),
         },
       ]}
     >
@@ -77,7 +77,8 @@ const AnimatedCollapseButton = (props: Props) => {
                 ]}
               >
                 <Text
-                  style={{fontFamily: FontNames.mainFont}}
+                  style={styles.pressHereStyle}
+                  // eslint-disable-next-line quotes
                 >{`Press here `}</Text>
                 {props.text}
               </Animated.Text>

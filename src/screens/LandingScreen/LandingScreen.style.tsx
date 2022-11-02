@@ -3,25 +3,23 @@ import {COLORS} from '../../../COLORS';
 import {FontNames} from '../../assets/FontsNames';
 import {HEIGHT, ScreenHeight} from '../../constants/dimension';
 
-const parentImageContainer: ViewStyle = {
+const imageContainer: ViewStyle = {
+  flex: 1,
+};
+
+const parentContainer: ViewStyle = {
   flex: 1,
   alignItems: 'center',
+  justifyContent: 'space-between',
 };
 
 const parentLabelContainer: ViewStyle = {
-  top: 100,
+  top: 50,
 };
 
 const labelText: TextStyle = {
   fontFamily: FontNames.mainFont,
   fontSize: 35,
-};
-
-const buttonsContainer: ViewStyle = {
-  position: 'absolute',
-  bottom: 40,
-  height: HEIGHT * 0.15,
-  justifyContent: 'space-between',
 };
 
 const loginLabelStyle: TextStyle = {
@@ -42,10 +40,10 @@ const registerButtonStyle: ViewStyle = {
 };
 
 export const styles = {
-  parentImageContainer,
+  imageContainer,
+  parentContainer,
   parentLabelContainer,
   labelText,
-  buttonsContainer,
   registerLabelStyle,
   loginLabelStyle,
   registerButtonStyle,

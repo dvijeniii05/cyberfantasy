@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, TextStyle, ViewStyle} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {FontNames} from '../../assets/FontsNames';
 import {styles} from './DefaultButton.style';
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
   label: string;
   style?: ViewStyle;
   textStyle?: TextStyle;
+  customFont?: boolean;
 }
 
 const DefaultButton = (props: Props) => {
@@ -16,7 +18,15 @@ const DefaultButton = (props: Props) => {
       style={[styles.parentContainer, props.style]}
       onPress={props.onPress}
     >
-      <Text style={[styles.textStyle, props.textStyle]}>{props.label}</Text>
+      <Text
+        style={[
+          styles.textStyle,
+          props.textStyle,
+          props.customFont ? styles.customFont : null,
+        ]}
+      >
+        {props.label}
+      </Text>
     </TouchableOpacity>
   );
 };
