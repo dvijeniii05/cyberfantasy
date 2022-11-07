@@ -2,7 +2,7 @@ import {ViewStyle} from 'react-native';
 import {COLORS} from '../../../COLORS';
 
 const backgroundContainer: ViewStyle = {
-  backgroundColor: COLORS.white,
+  backgroundColor: COLORS.secondary,
   flex: 1,
   alignItems:'center'
 };

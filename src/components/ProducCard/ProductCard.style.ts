@@ -1,21 +1,25 @@
-import {TextStyle, ViewStyle} from 'react-native';
+import {ImageStyle, TextStyle, ViewStyle} from 'react-native';
+import { COLORS } from '../../../COLORS';
 
 const productContainer: ViewStyle = {
-  backgroundColor: 'red',
   width: 100,
-  height: '100%',
   marginHorizontal: 5,
-  justifyContent: 'space-between',
-  borderRadius: 10,
-  paddingHorizontal:4
+  borderRadius: 7,
+  overflow:'hidden'
+};
+
+const imageStyle: ImageStyle = {
+  height:'70%',
 };
 
 const descriptionStyle: TextStyle = {
-  fontSize: 14,
-  flexShrink:1
-};
+  padding:2,
+  fontSize:12,
+  color: COLORS.primary_light
+}
 
 export const styles = {
   productContainer,
+  imageStyle,
   descriptionStyle,
 };

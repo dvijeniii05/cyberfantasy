@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './ProductCard.style';
 
 interface ItemProps {
@@ -10,8 +10,14 @@ interface ItemProps {
 const ProductCard = (props: ItemProps) => {
   return (
     <TouchableOpacity style={styles.productContainer} onPress={() => {}}>
-      <Text style={styles.descriptionStyle}>{props.image}</Text>
-      <Text style={styles.descriptionStyle}>{props.desc}</Text>
+      <Image
+        source={{uri: props.image}}
+        style={styles.imageStyle}
+        resizeMode='contain'
+      />
+      <Text style={styles.descriptionStyle}>
+        {`${props.desc.slice(0, 20)}...`}
+      </Text>
     </TouchableOpacity>
   );
 };

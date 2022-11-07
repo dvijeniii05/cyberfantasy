@@ -1,9 +1,8 @@
 import { TextStyle, ViewStyle } from "react-native";
+import { COLORS } from "../../../COLORS";
 import { HomeScreenDefaultWidth } from "../../constants/dimension";
 
 const parentContainer: ViewStyle = {
-    width: HomeScreenDefaultWidth,
-    height: 0.3 * HomeScreenDefaultWidth,
     padding: 10,
     justifyContent:'center',
     alignItems:'center'
@@ -11,7 +10,8 @@ const parentContainer: ViewStyle = {
 
 const textStyle: TextStyle = {
     fontSize:16,
-    textAlign:'center'
+    textAlign:'center',
+    color: COLORS.primary_light
 }
 
 export const styles = {

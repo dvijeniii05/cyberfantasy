@@ -1,13 +1,8 @@
-import {ViewStyle} from 'react-native';
+import {TextStyle, ViewStyle} from 'react-native';
 import { COLORS } from '../../COLORS';
+import { FontNames } from '../assets/FontsNames';
 
 const screenOption: ViewStyle = {
-  position: 'absolute',
-  alignSelf: 'center',
-  marginHorizontal: 40,
-  bottom: 30,
-  height:60,
-  borderRadius:30,
   backgroundColor:COLORS.darkGrey,
 };
 
@@ -16,7 +11,17 @@ const iconStyle: ViewStyle = {
   top: '50%',
 }
 
+const homeIconStyle = (color: string):TextStyle => {
+  return {
+    color: color,
+    fontFamily: FontNames.mainFont,
+    fontSize:25,
+    letterSpacing:0,
+  }
+}
+
 export const styles = {
   screenOption,
-  iconStyle
+  iconStyle,
+  homeIconStyle
 };

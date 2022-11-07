@@ -1,8 +1,9 @@
 import React from 'react'
 import { ViewStyle } from 'react-native'
+import { COLORS } from '../../../COLORS'
 
 const backgroundContainer: ViewStyle = {
-    backgroundColor:'green',
+    backgroundColor:COLORS.secondary,
     flex:1,
     alignItems:'center'
 }

@@ -17,7 +17,7 @@ const AppDrawer = () => {
         <>
           <Stack.Screen
             name={StackScreenNames.Landing}
-            component={LandingScreen}
+            component={BottomTab} // CHNAGE TO LANDING SCREEN
           />
           <Stack.Screen
             name={StackScreenNames.InitialPick}

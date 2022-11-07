@@ -1,10 +1,11 @@
 module.exports = {
   bracketSpacing: false,
   singleQuote: true,
-  trailingComma: "es5",
+  trailingComma: 'es5',
+  jsxSingleQuote: true,
   overrides: [
     {
-      files: "*.yaml",
+      files: '*.yaml',
       options: {
         singleQuote: false,
       },
