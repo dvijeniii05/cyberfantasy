@@ -1,3 +1,5 @@
+import {StackNavigationProp} from '@react-navigation/stack';
+
 export type StackParams = {
   BottomTab: {
     Screen: string;
@@ -16,4 +18,14 @@ export type TabParams = {
   Account: undefined;
   Browse: undefined;
   PersonalCard: undefined;
+  ItemModal: {
+    Screen: string;
+  };
 };
+
+export type ModalParams = {
+  ItemInfo: undefined;
+};
+
+export type TabProps = StackNavigationProp<TabParams>;
+export type StackProps = StackNavigationProp<StackParams>;
