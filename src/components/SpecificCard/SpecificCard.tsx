@@ -4,21 +4,20 @@ import {styles} from './SpecificCard.style';
 
 interface ItemProps {
   desc: string;
-  image: string;
+  src: string;
 }
 
 const SpecificCard = (props: ItemProps) => {
-  return (
+  return !!props.desc ? (
     <View style={styles.mainContainer}>
-      {/* <Text>{props.desc}</Text> */}
       <Image
-        source={{uri: props.image}}
+        source={{uri: props.src}}
         style={styles.imageStyle}
         resizeMode='contain'
       />
       <Text style={styles.nameStyle}>{props.desc}</Text>
     </View>
-  );
+  ) : null;
 };
 
 export default SpecificCard;

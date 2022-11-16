@@ -1,19 +1,15 @@
-import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {
-  FlatList,
-  ImageBackground,
-  ListRenderItem,
-  Text,
-  View,
-} from 'react-native';
+import {FlatList, ListRenderItem, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {useDispatch} from 'react-redux';
 import {StackScreenNames} from '../../../ScreenNames';
 import AnimatedColorButton from '../../components/AnimatedColorButton/AnimatedColorButton';
 import DefaultButton from '../../components/DefaultButton/DefaultButton';
 import {KnownIssuesData} from '../../constants/KnownIssuesData';
-import {StackParams, TabParams} from '../../navigation/navigationTypes';
+import {StackParams} from '../../navigation/navigationTypes';
+import {fetchProducts} from '../../slices/productsSlice';
+import {AppDispatch} from '../../stores/productsStore';
 import {styles} from './KnownTypePickScreen.style';
 
 type Props = StackScreenProps<StackParams, StackScreenNames.KnownTypePick>;
@@ -24,8 +20,16 @@ interface ItemType {
 }
 
 const KnownTypePickScreen = ({navigation}: Props) => {
+  const dispatch = useDispatch<AppDispatch>();
   const renderItem: ListRenderItem<ItemType> = ({item}) => {
     return <AnimatedColorButton text={item.text} style={styles.cardStyle} />;
+  };
+
+  const submitData = () => {
+    dispatch(fetchProducts());
+    navigation.navigate('BottomTab', {
+      Screen: 'Home',
+    });
   };
 
   return (
@@ -39,15 +43,7 @@ const KnownTypePickScreen = ({navigation}: Props) => {
         contentContainerStyle={styles.contentContainerStyle}
         style={styles.listStyle}
       />
-      <DefaultButton
-        label="Save"
-        onPress={() =>
-          navigation.navigate('BottomTab', {
-            Screen: 'Home',
-          })
-        }
-        customFont={true}
-      />
+      <DefaultButton label='Save' onPress={submitData} customFont={true} />
     </SafeAreaView>
   );
 };

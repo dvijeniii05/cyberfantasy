@@ -4,11 +4,15 @@ import DUMMY_POSTS from '../../constants/homeScreenData';
 import SpecificCard from '../SpecificCard/SpecificCard';
 import {styles} from './BrowseSpecific.style';
 
-const BrowseSpecific = () => {
+interface Props {
+  data: any[];
+}
+
+const BrowseSpecific = (props: Props) => {
   return (
     <View style={styles.parentContainer}>
       <FlatList
-        data={DUMMY_POSTS}
+        data={props.data}
         renderItem={({item}) => SpecificCard(item)}
         numColumns={2}
         style={styles.listStyle}

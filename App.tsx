@@ -12,12 +12,16 @@ import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import AppDrawer from './src/navigation/AppDrawer';
 import './i18';
+import {Provider} from 'react-redux';
+import {productStore} from './src/stores/productsStore';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <AppDrawer />
-    </NavigationContainer>
+    <Provider store={productStore}>
+      <NavigationContainer>
+        <AppDrawer />
+      </NavigationContainer>
+    </Provider>
   );
 };
 
