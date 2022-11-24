@@ -10,6 +10,8 @@ import {RootState} from '../../redux/stores/productsStore';
 import {styles} from './ItemInfoScreen.style';
 import RenderHtml from 'react-native-render-html';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
+import {ScrollView} from 'react-native-gesture-handler';
+import {removeElement, isTag} from 'domutils';
 
 type ScreenProps = StackScreenProps<StackParams, StackScreenNames.ItemInfo>;
 
@@ -19,17 +21,35 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
   const productData = useSelector(
     (state: RootState) => state.productsReducer.data
   );
-  console.log('PRODUCT_URL', productUrl);
   const fullDesc = productData.filter((x) => {
-    console.log('INSIDE_FILTER', x.productUrl);
     if (x.productUrl === productUrl) {
       return x.fullDesc;
     }
   });
-  console.log('NEW_DATA', fullDesc);
+  // console.log('HTML_COMP', fullDesc[0]?.fullDesc);
 
   const source = {
-    html: `${fullDesc[0]?.fullDesc}`,
+    html: `<div dir="ltr">
+
+<p style="font-size: medium;">&nbsp;</p>
+
+<p style="font-size: medium;"><span style="font-family: arial, helvetica, sans-serif;"><strong>WHAT IT IS:&nbsp;</strong>A Bobbi Brown bestseller—a primer plus moisturisation for smooth makeup application (it's the best of both worlds). Rich in feel, but never greasy, this advanced face formula, with Shea Butter, instantly hydrates, softens and cushions skin.</span></p>
+
+<p style="font-size: medium;"><font face="arial, helvetica, sans-serif">&nbsp;</font></p>
+
+<p style="font-size: medium;"><span style="font-family: arial, helvetica, sans-serif;"><strong>WHO IT'S FOR:</strong>&nbsp;Normal to oily skin types.</span></p>
+
+  </div>`,
+  };
+
+  function onElement(element) {
+    if (element.tagName === 'p') {
+      console.log('P', element);
+    }
+  }
+
+  const domVisitors = {
+    onElement: onElement,
   };
 
   return (
@@ -47,7 +67,14 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
           <Text style={styles.titleStyle}>{shortDesc}</Text>
         </View>
         <View style={styles.descContainer}>
-          <RenderHtml source={source} contentWidth={HomeScreenDefaultWidth} />
+          <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
+            <RenderHtml
+              source={source}
+              contentWidth={150}
+              ignoredDomTags={['font']}
+              domVisitors={domVisitors}
+            />
+          </ScrollView>
         </View>
       </View>
     </View>
