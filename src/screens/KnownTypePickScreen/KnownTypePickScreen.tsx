@@ -8,8 +8,8 @@ import AnimatedColorButton from '../../components/AnimatedColorButton/AnimatedCo
 import DefaultButton from '../../components/DefaultButton/DefaultButton';
 import {KnownIssuesData} from '../../constants/KnownIssuesData';
 import {StackParams} from '../../navigation/navigationTypes';
-import {fetchProducts} from '../../slices/productsSlice';
-import {AppDispatch} from '../../stores/productsStore';
+import {fetchProducts} from '../../redux/slices/productsSlice';
+import {AppDispatch} from '../../redux/stores/productsStore';
 import {styles} from './KnownTypePickScreen.style';
 
 type Props = StackScreenProps<StackParams, StackScreenNames.KnownTypePick>;

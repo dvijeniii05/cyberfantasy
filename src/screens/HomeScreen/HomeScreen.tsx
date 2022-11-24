@@ -9,10 +9,8 @@ import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {TabParams} from '../../navigation/navigationTypes';
 import HeaderDivider from '../../components/HeaderDivider/HeaderDivider';
 import {TabScreenNames} from '../../../ScreenNames';
-import {useFocusEffect} from '@react-navigation/native';
-import axios from 'axios';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../stores/productsStore';
+import {RootState} from '../../redux/stores/productsStore';
 
 type NavigationProps = BottomTabScreenProps<TabParams, 'Home'>;
 

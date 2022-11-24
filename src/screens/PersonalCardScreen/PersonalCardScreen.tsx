@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 import BrowseSpecific from '../../components/BrowseSpecific/BrowseSpecific';
 import ExplanationCard from '../../components/ExplanationCard/ExplanationCard';
 import {TabParams} from '../../navigation/navigationTypes';
-import {RootState} from '../../stores/productsStore';
+import {RootState} from '../../redux/stores/productsStore';
 import {styles} from './PersonalCardScreen.style';
 
 type NavigationProps = BottomTabScreenProps<TabParams, 'PersonalCard'>;

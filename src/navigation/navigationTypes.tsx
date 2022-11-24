@@ -1,4 +1,5 @@
 import {StackNavigationProp} from '@react-navigation/stack';
+import {DataProps} from '../redux/slices/productsSlice';
 
 export type StackParams = {
   BottomTab: {
@@ -11,6 +12,9 @@ export type StackParams = {
   KnownTypePick: undefined;
   AdditionalQuestions: undefined;
   InitialPick: undefined;
+  ItemInfo: {
+    props: DataProps;
+  };
 };
 
 export type TabParams = {
@@ -18,13 +22,6 @@ export type TabParams = {
   Account: undefined;
   Browse: undefined;
   PersonalCard: undefined;
-  ItemModal: {
-    Screen: string;
-  };
-};
-
-export type ModalParams = {
-  ItemInfo: undefined;
 };
 
 export type TabProps = StackNavigationProp<TabParams>;

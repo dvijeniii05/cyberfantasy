@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {FlatList, View} from 'react-native';
-import {TabProps} from '../../navigation/navigationTypes';
+import {StackProps, TabProps} from '../../navigation/navigationTypes';
 import ProductCard from '../ProductCard/ProductCard';
 import {styles} from './Products.style';
 
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Products = (props: Props) => {
-  const navigation = useNavigation<TabProps>();
+  const navigation = useNavigation<StackProps>();
   return (
     <View style={styles.parentContainer}>
       <FlatList

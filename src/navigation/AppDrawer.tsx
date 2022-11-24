@@ -6,6 +6,7 @@ import {StackParams} from './navigationTypes';
 import KnownTypePick from '../screens/KnownTypePickScreen/KnownTypePickScreen';
 import InitialPickScreen from '../screens/InitialPickScreen/InitialPickScreen';
 import LandingScreen from '../screens/LandingScreen/LandingScreen';
+import ItemInfoScreen from '../screens/ItemInfoScreen/ItemInfoScreen';
 
 const Stack = createStackNavigator<StackParams>();
 
@@ -30,6 +31,11 @@ const AppDrawer = () => {
           <Stack.Screen
             name={StackScreenNames.BottomTab}
             component={BottomTab}
+          />
+          <Stack.Screen
+            name={StackScreenNames.ItemInfo}
+            component={ItemInfoScreen}
+            options={{presentation: 'modal'}}
           />
         </>
       ) : (

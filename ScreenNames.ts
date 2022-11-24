@@ -7,6 +7,7 @@ export enum StackScreenNames {
   KnownTypePick = 'KnownTypePick',
   AdditionalQuestions = 'AdditionalQuestions',
   BottomTab = 'BottomTab',
+  ItemInfo = 'ItemInfo'
 }
 
 export enum TabScreenNames {
