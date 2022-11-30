@@ -15,7 +15,7 @@ const parentContainer: ViewStyle = {
 };
 
 const imageContainer: ViewStyle = {
-  flex: 3,
+  flex: 2.5,
   width: WIDTH,
   justifyContent: 'center',
 };
@@ -25,20 +25,20 @@ const imageStyle: ImageStyle = {
 };
 
 const titleContainer: ViewStyle = {
-  flex: 1,
+  flex: 0.6,
+  justifyContent:'center'
 };
 
 const titleStyle: TextStyle = {
-  padding: 5,
-  fontSize: 20,
+  fontSize: 18,
   color: COLORS.primary_light,
 };
 
 const descContainer: ViewStyle = {
-  backgroundColor: 'red',
   flex: 5,
   width: WIDTH,
   paddingHorizontal: 20,
+  paddingTop: 5
 };
 
 export const styles = {

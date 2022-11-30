@@ -1,6 +1,6 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {useSelector} from 'react-redux';
 import {StackScreenNames} from '../../../ScreenNames';
 import PullIndicator from '../../components/PullIndicator/PullIndicator';
@@ -9,9 +9,9 @@ import {DataProps} from '../../redux/slices/productsSlice';
 import {RootState} from '../../redux/stores/productsStore';
 import {styles} from './ItemInfoScreen.style';
 import RenderHtml from 'react-native-render-html';
-import {HomeScreenDefaultWidth} from '../../constants/dimension';
 import {ScrollView} from 'react-native-gesture-handler';
-import {removeElement, isTag} from 'domutils';
+import {HomeScreenDefaultWidth} from '../../constants/dimension';
+import {WebView} from 'react-native-webview';
 
 type ScreenProps = StackScreenProps<StackParams, StackScreenNames.ItemInfo>;
 
@@ -26,30 +26,9 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
       return x.fullDesc;
     }
   });
-  // console.log('HTML_COMP', fullDesc[0]?.fullDesc);
 
   const source = {
-    html: `<div dir="ltr">
-
-<p style="font-size: medium;">&nbsp;</p>
-
-<p style="font-size: medium;"><span style="font-family: arial, helvetica, sans-serif;"><strong>WHAT IT IS:&nbsp;</strong>A Bobbi Brown bestseller—a primer plus moisturisation for smooth makeup application (it's the best of both worlds). Rich in feel, but never greasy, this advanced face formula, with Shea Butter, instantly hydrates, softens and cushions skin.</span></p>
-
-<p style="font-size: medium;"><font face="arial, helvetica, sans-serif">&nbsp;</font></p>
-
-<p style="font-size: medium;"><span style="font-family: arial, helvetica, sans-serif;"><strong>WHO IT'S FOR:</strong>&nbsp;Normal to oily skin types.</span></p>
-
-  </div>`,
-  };
-
-  function onElement(element) {
-    if (element.tagName === 'p') {
-      console.log('P', element);
-    }
-  }
-
-  const domVisitors = {
-    onElement: onElement,
+    html: `${fullDesc[0]?.fullDesc}`,
   };
 
   return (
@@ -70,11 +49,20 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
           <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
             <RenderHtml
               source={source}
-              contentWidth={150}
+              contentWidth={HomeScreenDefaultWidth}
               ignoredDomTags={['font']}
-              domVisitors={domVisitors}
+              enableCSSInlineProcessing
+              tagsStyles={{body: {color: 'white'}}}
             />
           </ScrollView>
+          <TouchableOpacity
+            style={{width: 100, height: 50, backgroundColor: 'green'}}
+            onPress={() =>
+              navigation.navigate(StackScreenNames.WebView, {url: productUrl})
+            }
+          >
+            <Text>Press</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

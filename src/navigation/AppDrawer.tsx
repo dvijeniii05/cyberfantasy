@@ -7,6 +7,7 @@ import KnownTypePick from '../screens/KnownTypePickScreen/KnownTypePickScreen';
 import InitialPickScreen from '../screens/InitialPickScreen/InitialPickScreen';
 import LandingScreen from '../screens/LandingScreen/LandingScreen';
 import ItemInfoScreen from '../screens/ItemInfoScreen/ItemInfoScreen';
+import WebViewScreen from '../screens/WebViewScreen/WebViewScreen';
 
 const Stack = createStackNavigator<StackParams>();
 
@@ -35,6 +36,11 @@ const AppDrawer = () => {
           <Stack.Screen
             name={StackScreenNames.ItemInfo}
             component={ItemInfoScreen}
+            options={{presentation: 'modal'}}
+          />
+          <Stack.Screen
+            name={StackScreenNames.WebView}
+            component={WebViewScreen}
             options={{presentation: 'modal'}}
           />
         </>

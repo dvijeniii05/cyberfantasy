@@ -15,6 +15,9 @@ export type StackParams = {
   ItemInfo: {
     props: DataProps;
   };
+  WebView: {
+    url: string;
+  };
 };
 
 export type TabParams = {
