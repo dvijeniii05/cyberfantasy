@@ -26,7 +26,8 @@ const imageStyle: ImageStyle = {
 
 const titleContainer: ViewStyle = {
   flex: 0.6,
-  justifyContent:'center'
+  justifyContent: 'center',
+  backgroundColor: 'green',
 };
 
 const titleStyle: TextStyle = {
@@ -34,11 +35,17 @@ const titleStyle: TextStyle = {
   color: COLORS.primary_light,
 };
 
+const ratingContainer: ViewStyle = {
+  flex: 0.6,
+  backgroundColor: 'red',
+  flexDirection: 'row',
+};
+
 const descContainer: ViewStyle = {
   flex: 5,
   width: WIDTH,
   paddingHorizontal: 20,
-  paddingTop: 5
+  paddingTop: 5,
 };
 
 export const styles = {
@@ -48,5 +55,6 @@ export const styles = {
   imageStyle,
   titleContainer,
   titleStyle,
+  ratingContainer,
   descContainer,
 };

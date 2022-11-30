@@ -11,12 +11,12 @@ import {styles} from './ItemInfoScreen.style';
 import RenderHtml from 'react-native-render-html';
 import {ScrollView} from 'react-native-gesture-handler';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
-import {WebView} from 'react-native-webview';
 
 type ScreenProps = StackScreenProps<StackParams, StackScreenNames.ItemInfo>;
 
 const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
-  const {productUrl, shortDesc, src}: DataProps = route.params.props;
+  const {src, productUrl, shortDesc, ratingStars, ratingVotes}: DataProps =
+    route.params.props;
 
   const productData = useSelector(
     (state: RootState) => state.productsReducer.data
@@ -44,6 +44,10 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
         </View>
         <View style={styles.titleContainer}>
           <Text style={styles.titleStyle}>{shortDesc}</Text>
+        </View>
+        <View style={styles.ratingContainer}>
+          <Text>{ratingStars}</Text>
+          <Text>{ratingVotes}</Text>
         </View>
         <View style={styles.descContainer}>
           <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
