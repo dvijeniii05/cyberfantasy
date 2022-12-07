@@ -12,6 +12,8 @@ import RenderHtml from 'react-native-render-html';
 import {ScrollView} from 'react-native-gesture-handler';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
 import Rating from '../../components/Rating/Rating';
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent';
+import {t} from 'i18next';
 
 type ScreenProps = StackScreenProps<StackParams, StackScreenNames.ItemInfo>;
 
@@ -35,6 +37,8 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
   return (
     <View style={styles.backgroundContainer}>
       <PullIndicator />
+      <LoadingComponent loadingText={t('loading_indicator_text')} />
+
       <View style={styles.parentContainer}>
         <View style={styles.imageContainer}>
           <Image

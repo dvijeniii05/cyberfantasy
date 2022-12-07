@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {FlatList, View} from 'react-native';
-import {StackProps, TabProps} from '../../navigation/navigationTypes';
+import {StackProps} from '../../navigation/navigationTypes';
 import ProductCard from '../ProductCard/ProductCard';
 import {styles} from './Products.style';
 
