@@ -11,6 +11,7 @@ import {styles} from './ItemInfoScreen.style';
 import RenderHtml from 'react-native-render-html';
 import {ScrollView} from 'react-native-gesture-handler';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
+import Rating from '../../components/Rating/Rating';
 
 type ScreenProps = StackScreenProps<StackParams, StackScreenNames.ItemInfo>;
 
@@ -46,8 +47,7 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
           <Text style={styles.titleStyle}>{shortDesc}</Text>
         </View>
         <View style={styles.ratingContainer}>
-          <Text>{ratingStars}</Text>
-          <Text>{ratingVotes}</Text>
+          <Rating stars={ratingStars} votes={ratingVotes} />
         </View>
         <View style={styles.descContainer}>
           <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>

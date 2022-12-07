@@ -27,7 +27,6 @@ const imageStyle: ImageStyle = {
 const titleContainer: ViewStyle = {
   flex: 0.6,
   justifyContent: 'center',
-  backgroundColor: 'green',
 };
 
 const titleStyle: TextStyle = {
@@ -37,8 +36,6 @@ const titleStyle: TextStyle = {
 
 const ratingContainer: ViewStyle = {
   flex: 0.6,
-  backgroundColor: 'red',
-  flexDirection: 'row',
 };
 
 const descContainer: ViewStyle = {
