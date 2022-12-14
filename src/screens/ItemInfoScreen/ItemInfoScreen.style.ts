@@ -42,7 +42,7 @@ const descContainer: ViewStyle = {
   flex: 5,
   width: WIDTH,
   paddingHorizontal: 20,
-  paddingTop: 5,
+  alignItems:'center'
 };
 
 export const styles = {

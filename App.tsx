@@ -13,7 +13,7 @@ import React from 'react';
 import AppDrawer from './src/navigation/AppDrawer';
 import './i18';
 import {Provider} from 'react-redux';
-import {productStore} from './src/redux/stores/productsStore';
+import {productStore} from './src/redux/stores/mainStore';
 
 const App = () => {
   return (

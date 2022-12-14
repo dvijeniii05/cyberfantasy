@@ -4,7 +4,7 @@ import {StackProps} from '../../navigation/navigationTypes';
 import {styles} from './ProductCard.style';
 import {StackScreenNames} from '../../../ScreenNames';
 import {DataProps, fetchSingleProduct} from '../../redux/slices/productsSlice';
-import {productStore} from '../../redux/stores/productsStore';
+import {productStore} from '../../redux/stores/mainStore';
 
 const ProductCard = (props: DataProps, nav: StackProps) => {
   const submitData = () => {

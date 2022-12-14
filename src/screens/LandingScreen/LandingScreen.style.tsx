@@ -24,8 +24,6 @@ const labelText: TextStyle = {
 
 const loginLabelStyle: TextStyle = {
   color: COLORS.primary_light,
-  fontFamily: FontNames.mainFont,
-  letterSpacing: 2,
 };
 
 const registerLabelStyle: TextStyle = {

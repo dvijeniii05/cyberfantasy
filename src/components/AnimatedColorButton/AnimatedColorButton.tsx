@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Animated, Pressable, StyleProp, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useDispatch} from 'react-redux';
 import {COLORS} from '../../../COLORS';
 import {
   fadingFunction,
@@ -8,17 +9,22 @@ import {
   stringChangeFunction,
 } from '../../animation/AnimationFunction';
 import {HomeScreenDefaultWidth} from '../../constants/dimension';
+import {addSkinType, deleteSkinType} from '../../redux/slices/skinTypeSlice';
+import {AppDispatch} from '../../redux/stores/mainStore';
 import {styles} from './AnimatedColorButton.styles';
 
 interface Props {
   text: string;
   style?: StyleProp<any>;
+  value?: string;
 }
 
 const AnimatedColorButton = (props: Props) => {
   // const [showIcon, setShowIcon] = useState<boolean>(false);
   const [pressed, setPressed] = useState<boolean>(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const dispatch = useDispatch<AppDispatch>();
+
   useEffect(() => {
     if (pressed) {
       // setShowIcon(true);
@@ -29,6 +35,14 @@ const AnimatedColorButton = (props: Props) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pressed]);
+
+  const updateSkinTypeFunc = () => {
+    if (pressed) {
+      dispatch(deleteSkinType(props.value));
+    } else {
+      dispatch(addSkinType(props.value));
+    }
+  };
 
   return (
     <Animated.View
@@ -53,7 +67,10 @@ const AnimatedColorButton = (props: Props) => {
     >
       <Pressable
         style={styles.pressableStyle}
-        onPress={() => setPressed(!pressed)}
+        onPress={() => {
+          setPressed(!pressed);
+          updateSkinTypeFunc();
+        }}
       >
         <View style={styles.innerContainer}>
           <Animated.Text
@@ -66,7 +83,7 @@ const AnimatedColorButton = (props: Props) => {
           </Animated.Text>
           {pressed ? (
             <View style={styles.iconContainer}>
-              <MaterialIcons name="check" size={35} color={COLORS.primary} />
+              <MaterialIcons name='check' size={35} color={COLORS.primary} />
             </View>
           ) : null}
         </View>

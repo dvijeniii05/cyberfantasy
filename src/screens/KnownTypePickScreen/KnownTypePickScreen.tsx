@@ -9,7 +9,7 @@ import DefaultButton from '../../components/DefaultButton/DefaultButton';
 import {KnownIssuesData} from '../../constants/KnownIssuesData';
 import {StackParams} from '../../navigation/navigationTypes';
 import {fetchProducts} from '../../redux/slices/productsSlice';
-import {AppDispatch} from '../../redux/stores/productsStore';
+import {AppDispatch} from '../../redux/stores/mainStore';
 import {styles} from './KnownTypePickScreen.style';
 
 type Props = StackScreenProps<StackParams, StackScreenNames.KnownTypePick>;
@@ -17,12 +17,19 @@ type Props = StackScreenProps<StackParams, StackScreenNames.KnownTypePick>;
 interface ItemType {
   key: number;
   text: string;
+  value: string;
 }
 
 const KnownTypePickScreen = ({navigation}: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const renderItem: ListRenderItem<ItemType> = ({item}) => {
-    return <AnimatedColorButton text={item.text} style={styles.cardStyle} />;
+    return (
+      <AnimatedColorButton
+        text={item.text}
+        style={styles.cardStyle}
+        value={item.value}
+      />
+    );
   };
 
   const submitData = () => {

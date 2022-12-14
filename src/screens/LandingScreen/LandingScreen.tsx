@@ -22,7 +22,8 @@ const LandingScreen = ({navigation}: Props) => {
         <DefaultButton
           onPress={() => navigation.navigate(StackScreenNames.InitialPick)}
           textStyle={styles.loginLabelStyle}
-          label="Get Started"
+          customFont={true}
+          label='Get Started'
         />
       </SafeAreaView>
     </ImageBackground>

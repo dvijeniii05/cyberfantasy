@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, ActivityIndicator} from 'react-native';
 import {useSelector} from 'react-redux';
 import {COLORS} from '../../../COLORS';
-import {RootState} from '../../redux/stores/productsStore';
+import {RootState} from '../../redux/stores/mainStore';
 import {styles} from './LoadingComponent.style';
 
 interface Props {

@@ -1,5 +1,6 @@
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import ForyouCard from '../../components/ForyouCard/ForyouCard';
 import GreetingLine from '../../components/GreetingsLine/Greetingsline';
 import Products from '../../components/Products/Products';
@@ -10,7 +11,7 @@ import {TabParams} from '../../navigation/navigationTypes';
 import HeaderDivider from '../../components/HeaderDivider/HeaderDivider';
 import {TabScreenNames} from '../../../ScreenNames';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../redux/stores/productsStore';
+import {RootState} from '../../redux/stores/mainStore';
 import LoadingComponent from '../../components/LoadingComponent/LoadingComponent';
 
 type NavigationProps = BottomTabScreenProps<TabParams, 'Home'>;

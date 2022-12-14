@@ -6,7 +6,7 @@ import {StackScreenNames} from '../../../ScreenNames';
 import PullIndicator from '../../components/PullIndicator/PullIndicator';
 import {StackParams} from '../../navigation/navigationTypes';
 import {DataProps} from '../../redux/slices/productsSlice';
-import {RootState} from '../../redux/stores/productsStore';
+import {RootState} from '../../redux/stores/mainStore';
 import {styles} from './ItemInfoScreen.style';
 import RenderHtml from 'react-native-render-html';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -14,6 +14,9 @@ import {HomeScreenDefaultWidth} from '../../constants/dimension';
 import Rating from '../../components/Rating/Rating';
 import LoadingComponent from '../../components/LoadingComponent/LoadingComponent';
 import {t} from 'i18next';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import DefaultButton from '../../components/DefaultButton/DefaultButton';
+import {COLORS} from '../../../COLORS';
 
 type ScreenProps = StackScreenProps<StackParams, StackScreenNames.ItemInfo>;
 
@@ -35,10 +38,10 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
   };
 
   return (
-    <View style={styles.backgroundContainer}>
+    <SafeAreaView style={styles.backgroundContainer} edges={['bottom']}>
       <PullIndicator />
-      <LoadingComponent loadingText={t('loading_indicator_text')} />
 
+      <LoadingComponent loadingText={t('loading_indicator_text')} />
       <View style={styles.parentContainer}>
         <View style={styles.imageContainer}>
           <Image
@@ -54,7 +57,11 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
           <Rating stars={ratingStars} votes={ratingVotes} />
         </View>
         <View style={styles.descContainer}>
-          <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            horizontal={false}
+            style={{marginBottom: 10}}
+          >
             <RenderHtml
               source={source}
               contentWidth={HomeScreenDefaultWidth}
@@ -63,17 +70,18 @@ const ItemInfoScreen = ({route, navigation}: ScreenProps) => {
               tagsStyles={{body: {color: 'white'}}}
             />
           </ScrollView>
-          <TouchableOpacity
-            style={{width: 100, height: 50, backgroundColor: 'green'}}
+          <DefaultButton
+            style={{backgroundColor: COLORS.primary}}
             onPress={() =>
               navigation.navigate(StackScreenNames.WebView, {url: productUrl})
             }
-          >
-            <Text>Press</Text>
-          </TouchableOpacity>
+            label={'More info'}
+            customFont={true}
+            textStyle={{color: COLORS.secondary}}
+          />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
