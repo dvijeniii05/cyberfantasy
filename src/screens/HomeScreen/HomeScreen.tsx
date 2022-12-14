@@ -18,7 +18,9 @@ type NavigationProps = BottomTabScreenProps<TabParams, 'Home'>;
 
 const HomeScreen = ({navigation}: NavigationProps) => {
   const {t} = useTranslation();
-  const products = useSelector((state: RootState) => state.productsReducer);
+  const products = useSelector(
+    (state: RootState) => state.productsReducer.data
+  );
   return (
     <SafeAreaView style={styles.backgroundContainer}>
       <StatusBar barStyle={'light-content'} />
@@ -30,9 +32,9 @@ const HomeScreen = ({navigation}: NavigationProps) => {
         onPress={() => navigation.navigate(TabScreenNames.PersonalCard)}
       />
       <HeaderDivider label='New products' />
-      <Products data={products.data} />
+      <Products data={products} />
       <HeaderDivider label='Most popular' />
-      <Products data={products.data} />
+      <Products data={products} />
     </SafeAreaView>
   );
 };

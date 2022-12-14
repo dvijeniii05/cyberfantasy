@@ -2,14 +2,14 @@ import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
 import {FlatList, ListRenderItem, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {StackScreenNames} from '../../../ScreenNames';
 import AnimatedColorButton from '../../components/AnimatedColorButton/AnimatedColorButton';
 import DefaultButton from '../../components/DefaultButton/DefaultButton';
 import {KnownIssuesData} from '../../constants/KnownIssuesData';
 import {StackParams} from '../../navigation/navigationTypes';
 import {fetchProducts} from '../../redux/slices/productsSlice';
-import {AppDispatch} from '../../redux/stores/mainStore';
+import {AppDispatch, RootState} from '../../redux/stores/mainStore';
 import {styles} from './KnownTypePickScreen.style';
 
 type Props = StackScreenProps<StackParams, StackScreenNames.KnownTypePick>;
@@ -22,6 +22,10 @@ interface ItemType {
 
 const KnownTypePickScreen = ({navigation}: Props) => {
   const dispatch = useDispatch<AppDispatch>();
+  const skinTypes = useSelector(
+    (state: RootState) => state.skinTypeSlice.skinType
+  );
+
   const renderItem: ListRenderItem<ItemType> = ({item}) => {
     return (
       <AnimatedColorButton
@@ -33,7 +37,7 @@ const KnownTypePickScreen = ({navigation}: Props) => {
   };
 
   const submitData = () => {
-    dispatch(fetchProducts());
+    dispatch(fetchProducts(skinTypes));
     navigation.navigate('BottomTab', {
       Screen: 'Home',
     });
