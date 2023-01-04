@@ -15,15 +15,15 @@ const ForyouCard = (props: Props) => {
       <ImageBackground
         source={require('../../assets/Explore7.jpeg')}
         style={styles.imageBackground}
-        resizeMode="cover"
+        resizeMode='cover'
       >
-        <BlurView blurType="light" style={styles.bluredImage}>
+        <BlurView blurType='light' style={styles.bluredImage}>
           <TouchableOpacity
-            testID="foryoucard-button"
+            testID='foryoucard-button'
             style={styles.buttonBackground}
             onPress={props.onPress}
           >
-            <Text style={styles.textContainer} testID="foryoucard-text">
+            <Text style={styles.textContainer} testID='foryoucard-text'>
               {props.content}
             </Text>
             <ProceedButton />

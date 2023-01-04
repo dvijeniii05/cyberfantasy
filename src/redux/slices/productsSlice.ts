@@ -32,7 +32,7 @@ export const fetchProducts = createAsyncThunk(
       'http://localhost:3000/allProducts/' +
         encodeURIComponent(JSON.stringify(skinTypes))
     );
-    console.log(response.data);
+    console.log('RESPONSE_RECEIVED', response.data.length);
     return response.data;
   }
 );

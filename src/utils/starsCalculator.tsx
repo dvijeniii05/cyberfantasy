@@ -47,14 +47,13 @@ export const starsCalculator = (rating?: string): number => {
 };
 
 export const stars = (starsCount: number) => {
-  let stars = [];
+  let count = [];
   for (let i = 0; i <= starsCount; i++) {
-    const zeroStars = starsCount == 0 ? 5 : 0;
-    if (starsCount == i || zeroStars != 0) {
-      console.log('Last hit?');
+    const zeroStars = starsCount === 0 ? 5 : 0;
+    if (starsCount === i || zeroStars !== 0) {
       let greyStars = 5 - starsCount;
       for (let x = 0; x < greyStars; x++) {
-        stars.push(
+        count.push(
           <AntDesign
             name='star'
             size={24}
@@ -64,11 +63,10 @@ export const stars = (starsCount: number) => {
         );
       }
     } else {
-      console.log('else called');
-      stars.push(
+      count.push(
         <AntDesign name='star' size={24} key={i} color={COLORS.primary} />
       );
     }
   }
-  return stars;
+  return count;
 };

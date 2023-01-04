@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+import {StackProps} from '../../navigation/navigationTypes';
 import {styles} from './SpecificCard.style';
 
 interface ItemProps {
@@ -7,7 +8,7 @@ interface ItemProps {
   src: string;
 }
 
-const SpecificCard = (props: ItemProps) => {
+const SpecificCard = (props: DataProps, nav: StackProps) => {
   return !!props.desc ? (
     <View style={styles.mainContainer}>
       <Image
