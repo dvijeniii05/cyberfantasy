@@ -5,7 +5,6 @@ const parentContainer: ViewStyle = {
   width: WIDTH,
   height: '100%', //or flex: 1 ??
   alignItems: 'center',
-  backgroundColor: 'red',
 };
 
 const listStyle: ViewStyle = {

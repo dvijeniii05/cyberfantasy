@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {View, FlatList} from 'react-native';
+import {View, FlatList, Image, Text} from 'react-native';
+import {WIDTH} from '../../constants/dimension';
 import DUMMY_POSTS from '../../constants/homeScreenData';
 import {StackProps} from '../../navigation/navigationTypes';
 import ProductCard from '../ProductCard/ProductCard';
@@ -52,11 +53,29 @@ const Dummy = [
 const BrowseSpecific = (props: Props) => {
   return (
     <View style={styles.parentContainer}>
-      <FlatList
+      {/* <FlatList
         data={Dummy}
         renderItem={({item}) => DummyCard(item)}
         numColumns={2}
-      />
+      /> */}
+      <View
+        style={{
+          width: WIDTH * 0.45,
+          height: WIDTH * 0.45,
+          backgroundColor: 'green',
+        }}
+      >
+        <View style={{height: '70%', backgroundColor: 'blue'}}>
+          <Image
+            source={{uri: Dummy[0].src}}
+            resizeMode='contain'
+            style={{height: '100%'}}
+          />
+        </View>
+        <View style={{height: '30%'}}>
+          <Text style={{textAlign: 'center'}}>{Dummy[0].shortDesc}</Text>
+        </View>
+      </View>
     </View>
   );
 };
