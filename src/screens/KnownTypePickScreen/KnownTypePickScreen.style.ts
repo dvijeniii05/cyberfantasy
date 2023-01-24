@@ -1,7 +1,10 @@
 import {TextStyle, ViewStyle} from 'react-native';
 import {COLORS} from '../../../COLORS';
 import {FontNames} from '../../assets/FontsNames';
-import {HomeScreenDefaultWidth} from '../../constants/dimension';
+import {
+  deafultHeadingFontSize,
+  HomeScreenDefaultWidth,
+} from '../../constants/dimension';
 
 const backgroundContainer: ViewStyle = {
   backgroundColor: COLORS.primary,
@@ -29,7 +32,7 @@ const headingContainer: ViewStyle = {
 };
 
 const headingstyle: TextStyle = {
-  fontSize: 28,
+  fontSize: deafultHeadingFontSize,
   fontFamily: FontNames.mainFont,
 };
 

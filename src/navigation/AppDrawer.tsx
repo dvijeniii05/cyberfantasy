@@ -8,6 +8,7 @@ import InitialPickScreen from '../screens/InitialPickScreen/InitialPickScreen';
 import LandingScreen from '../screens/LandingScreen/LandingScreen';
 import ItemInfoScreen from '../screens/ItemInfoScreen/ItemInfoScreen';
 import WebViewScreen from '../screens/WebViewScreen/WebViewScreen';
+import PickTestScreen from '../screens/PickTestScreen/PickTestScreen';
 
 const Stack = createStackNavigator<StackParams>();
 
@@ -28,6 +29,10 @@ const AppDrawer = () => {
           <Stack.Screen
             name={StackScreenNames.KnownTypePick}
             component={KnownTypePick}
+          />
+          <Stack.Screen
+            name={StackScreenNames.PickTest}
+            component={PickTestScreen}
           />
           <Stack.Screen
             name={StackScreenNames.BottomTab}

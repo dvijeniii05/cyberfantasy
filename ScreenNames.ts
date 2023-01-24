@@ -5,10 +5,11 @@ export enum StackScreenNames {
   InitialPick = 'InitialPick',
   Questionnaire = 'Questionnaire',
   KnownTypePick = 'KnownTypePick',
+  PickTest = 'PickTest',
   AdditionalQuestions = 'AdditionalQuestions',
   BottomTab = 'BottomTab',
   ItemInfo = 'ItemInfo',
-  WebView = 'WebView'
+  WebView = 'WebView',
 }
 
 export enum TabScreenNames {

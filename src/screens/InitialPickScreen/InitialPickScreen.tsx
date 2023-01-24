@@ -22,6 +22,7 @@ const InitialPickScreen = ({navigation}: Props) => {
       />
       <AnimatedCollapseButton
         text={t('initialPick_ProceedToTest_button_text')}
+        navigation={() => navigation.navigate(StackScreenNames.PickTest)}
       />
     </ImageBackground>
   );
