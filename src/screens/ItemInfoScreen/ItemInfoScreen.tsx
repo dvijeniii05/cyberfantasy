@@ -1,6 +1,6 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import {useSelector} from 'react-redux';
 import {StackScreenNames} from '../../../ScreenNames';
 import PullIndicator from '../../components/PullIndicator/PullIndicator';

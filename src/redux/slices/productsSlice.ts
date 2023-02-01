@@ -12,6 +12,8 @@ export interface DataProps {
   src: string;
   productUrl: string;
   fullDesc?: HTMLElement;
+  ratingStars?: string;
+  ratingVotes?: string;
 }
 
 export interface FullDescProps {
