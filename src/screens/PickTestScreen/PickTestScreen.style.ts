@@ -23,14 +23,16 @@ const headingText: TextStyle = {
 
 const buttonContainer: ViewStyle = {
   backgroundColor: 'red',
-  justifyContent: 'space-between',
+  justifyContent: 'space-evenly',
   flex: 1,
 };
 
 const button: ViewStyle = {
-  height: 200,
+  height: 150,
   width: HomeScreenDefaultWidth,
   backgroundColor: 'green',
+  justifyContent:'center',
+  alignItems:'center'
 };
 
 export const styles = {

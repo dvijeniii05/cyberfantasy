@@ -9,6 +9,10 @@ import LandingScreen from '../screens/LandingScreen/LandingScreen';
 import ItemInfoScreen from '../screens/ItemInfoScreen/ItemInfoScreen';
 import WebViewScreen from '../screens/WebViewScreen/WebViewScreen';
 import PickTestScreen from '../screens/PickTestScreen/PickTestScreen';
+import MultipleChoiceTestScreen from '../screens/MultipleChoiceTestScreen/MultipleChoiceTestScreen';
+import ProcedureTestScreen from '../screens/ProcedureTestScreen/ProcedureTestScreen';
+import AiTestScreen from '../screens/AiTestScreen/AiTestScreen';
+import ProfileFlipper from '../../optimisation/Profile';
 
 const Stack = createStackNavigator<StackParams>();
 
@@ -20,7 +24,7 @@ const AppDrawer = () => {
         <>
           <Stack.Screen
             name={StackScreenNames.Landing}
-            component={LandingScreen} // CHNAGE TO LANDING SCREEN
+            component={ProfileFlipper} // CHNAGE TO LANDING SCREEN
           />
           <Stack.Screen
             name={StackScreenNames.InitialPick}
@@ -33,6 +37,18 @@ const AppDrawer = () => {
           <Stack.Screen
             name={StackScreenNames.PickTest}
             component={PickTestScreen}
+          />
+          <Stack.Screen
+            name={StackScreenNames.MultipleChoiceTest}
+            component={MultipleChoiceTestScreen}
+          />
+          <Stack.Screen
+            name={StackScreenNames.ProcedureTest}
+            component={ProcedureTestScreen}
+          />
+          <Stack.Screen
+            name={StackScreenNames.AiTest}
+            component={AiTestScreen}
           />
           <Stack.Screen
             name={StackScreenNames.BottomTab}

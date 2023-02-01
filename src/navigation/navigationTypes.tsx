@@ -10,6 +10,9 @@ export type StackParams = {
   Questionnaire: undefined;
   SignIn: undefined;
   KnownTypePick: undefined;
+  MultipleChoiceTest: undefined;
+  ProcedureTest: undefined;
+  AiTest: undefined;
   PickTest: undefined;
   AdditionalQuestions: undefined;
   InitialPick: undefined;
