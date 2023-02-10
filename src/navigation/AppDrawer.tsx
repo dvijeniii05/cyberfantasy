@@ -12,6 +12,7 @@ import PickTestScreen from '../screens/PickTestScreen/PickTestScreen';
 import MultipleChoiceTestScreen from '../screens/MultipleChoiceTestScreen/MultipleChoiceTestScreen';
 import ProcedureTestScreen from '../screens/ProcedureTestScreen/ProcedureTestScreen';
 import AiTestScreen from '../screens/AiTestScreen/AiTestScreen';
+import CarouselScreen from '../../carouselStuff/CarouselScreen';
 
 const Stack = createStackNavigator<StackParams>();
 
@@ -23,7 +24,7 @@ const AppDrawer = () => {
         <>
           <Stack.Screen
             name={StackScreenNames.Landing}
-            component={MultipleChoiceTestScreen} // CHNAGE TO LANDING SCREEN
+            component={CarouselScreen} // CHNAGE TO LANDING SCREEN
           />
           <Stack.Screen
             name={StackScreenNames.InitialPick}
