@@ -33,7 +33,6 @@ const CarouselScreen = () => {
     <SafeAreaView style={{flex: 1}}>
       <View
         style={{
-          flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: 'black',
@@ -42,6 +41,7 @@ const CarouselScreen = () => {
         <CustomCarousel
           data={dummyCarousel}
           renderItem={({item}) => <SlideItem item={item} />}
+          paginataionBackgroundColor={'blue'}
         />
       </View>
     </SafeAreaView>
