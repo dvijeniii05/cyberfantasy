@@ -1,32 +1,35 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 import SlideItem from './SlideItem';
-import CustomCarousel from './sandBox/CustomCarousel';
+// import CustomCarousel from './sandBox/CustomCarousel';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import CustomCarousel from 'carousel-with-pagination-rn';
 
-const dummyCarousel = [
+const dummyData = [
   {
     id: 1,
-    img: require('./image1.jpeg'),
-    title: 'Apple Watch Series 7',
-    description: 'The future of health is on your wrist',
-    price: '$399',
+    img: 'https://picsum.photos/400/600?random=1',
+    title: 'Element 1',
+    description: 'Pressable and animated pagination',
+    price: 'Fast',
   },
   {
     id: 2,
-    img: require('./image2.png'),
-    title: 'AirPods Pro',
-    description: 'Active noise cancellation for immersive sound',
-    price: '$249',
+    img: 'https://picsum.photos/400/600?random=2',
+    title: 'Element 2',
+    description: 'Full customization for carousel',
+    price: 'Simple',
   },
   {
     id: 3,
-    img: require('./image3.jpeg'),
-    title: 'AirPods Max',
-    description: 'Effortless AirPods experience',
-    price: '$549',
+    img: 'https://picsum.photos/400/600?random=3',
+    title: 'Element 3',
+    description: 'Accessible for VoiceOver',
+    price: 'Efficient',
   },
 ];
+
+const {width, height} = Dimensions.get('screen');
 
 const CarouselScreen = () => {
   return (
@@ -35,17 +38,66 @@ const CarouselScreen = () => {
         style={{
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: 'black',
         }}
       >
-        <CustomCarousel
-          data={dummyCarousel}
+        {/* <CustomCarousel
+          data={dummyData}
           renderItem={({item}) => <SlideItem item={item} />}
           paginataionBackgroundColor={'blue'}
+        /> */}
+        <CustomCarousel
+          data={dummyData}
+          renderItem={({item}) => {
+            return (
+              <View style={styles.container}>
+                <Image
+                  source={{uri: item.img}}
+                  style={styles.image}
+                  resizeMode='contain'
+                />
+
+                <View style={styles.content}>
+                  <Text style={styles.title}>{item.title}</Text>
+                  <Text style={styles.description}>{item.description}</Text>
+                  <Text style={styles.price}>{item.price}</Text>
+                </View>
+              </View>
+            );
+          }}
         />
       </View>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width,
+    height: 700,
+    alignItems: 'center',
+  },
+  image: {
+    flex: 0.8,
+    width: '100%',
+  },
+  content: {
+    flex: 0.4,
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  description: {
+    fontSize: 18,
+    marginVertical: 12,
+    color: '#333',
+  },
+  price: {
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
+});
 
 export default CarouselScreen;

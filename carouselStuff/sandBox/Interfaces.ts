@@ -1,39 +1,45 @@
 import {Animated, ListRenderItem, StyleProp, ViewStyle} from 'react-native';
 
-export interface CustomCarouselProps extends Partial<PressablePaginationProps> {
-    /**
-     * Used to pass in array of elements that should be rendered
-     * 
-     * The same as data prop in FlatList component
-     * 
-     */
+export interface CustomCarouselProps
+  extends Partial<
+    Omit<
+      PressablePaginationProps,
+      'data' | 'scrollX' | 'getIndex' | 'itemWidth'
+    >
+  > {
+  /**
+   * Used to pass in array of elements that should be rendered
+   *
+   * The same as data prop in FlatList component
+   *
+   */
   data: Array<any>;
-    /**
-     * Takes an item from data props and renders it as required
-     * 
-     * The same as renderItem prop in FlatList component
-     * 
-     */
+  /**
+   * Takes an item from data props and renders it as required
+   *
+   * The same as renderItem prop in FlatList component
+   *
+   */
   renderItem: ListRenderItem<any>;
-    /**
-     * Used to apply styling to the main container that wraps both: carousel and pagination
-     * 
-     */
+  /**
+   * Used to apply styling to the main container that wraps both: carousel and pagination
+   *
+   */
   mainContainerStyle?: StyleProp<ViewStyle>;
-    /**
-     * Equivalent to 'style' prop in FlatList and has the same affect to the Carousel
-     * 
-     */
+  /**
+   * Equivalent to 'style' prop in FlatList and has the same affect to the Carousel
+   *
+   */
   carouselContainerStyle?: StyleProp<ViewStyle>;
-      /**
-     * Equivalent to 'contentContainerStyle' prop in FlatList and has the same affect to the Carousel
-     * 
-     */
+  /**
+   * Equivalent to 'contentContainerStyle' prop in FlatList and has the same affect to the Carousel
+   *
+   */
   carouselContentContainerStyle?: StyleProp<ViewStyle>;
-    /**
-     * Used to apply styling to the container that wraps the pagination
-     * 
-     */
+  /**
+   * Used to apply styling to the container that wraps the pagination
+   *
+   */
   paginationContainerStyle?: StyleProp<ViewStyle>;
   /**
      * Is used to adjust inputRange of interpolated animations of pagination.
@@ -46,10 +52,10 @@ export interface CustomCarouselProps extends Partial<PressablePaginationProps> {
      ```
      */
   widthBoundaryForPagination?: number;
-    /**
-     * Called once the last element of the Carousel is displayed
-     * 
-     */
+  /**
+   * Called once the last element of the Carousel is displayed
+   *
+   */
   isEndReached?: (endReached: boolean) => void;
 }
 
@@ -58,7 +64,7 @@ export interface PressablePaginationProps {
   scrollX: Animated.AnimatedInterpolation<string | number>;
   getIndex: (idx: number) => void;
   itemWidth: number;
-    /**
+  /**
      * Is used to adjust dynamic width of each pagination indicator.
      * 
      * Has to be an array of 3 numbers where the second element of array will be assigned to width of the active indicator
@@ -71,8 +77,8 @@ export interface PressablePaginationProps {
      indicatorWidth={[15,30,15]}
      ```
      */
-  indicatorWidth: Array<number>,
-    /**
+  indicatorWidth: Array<number>;
+  /**
      * Is used to adjust dynamic height of each pagination indicator.
      * 
      * Has to be an array of 3 numbers where the second element of array will be assigned to height of the active indicator
@@ -85,8 +91,8 @@ export interface PressablePaginationProps {
      indicatorHeight={[15,30,15]}
      ```
      */
-  indicatorHeight: Array<number>,
-    /**
+  indicatorHeight: Array<number>;
+  /**
      * Is used to adjust dynamic color of each pagination indicator.
      * 
      * Has to be an array of 3 strings/colors where the second element of array will be assigned to color of the active indicator
@@ -99,29 +105,29 @@ export interface PressablePaginationProps {
      indicatorColor={['grey', 'black', 'grey']}
      ```
      */
-  indicatorColor: Array<string>,
-    /**
-     * Is used to adjust borderRadius of each pagination indicator.
-     * 
-     * Has to be a number
-     * 
-     * Default value is 5
-     */
-  inidicatorBorderRadius: number,
-    /**
-     * Is used to adjust horizontalPadding of each pagination indicator.
-     * 
-     * Has to be a number
-     * 
-     * Default value is 10
-     */
-  indicatorHorizontalPadding: number,
-    /**
-     * Is used to change backgroundColor of each pagination container.
-     * 
-     * Has to be a string
-     * 
-     * Default value is 'transparent'
-     */
-  paginataionBackgroundColor: string
+  indicatorColor: Array<string>;
+  /**
+   * Is used to adjust borderRadius of each pagination indicator.
+   *
+   * Has to be a number
+   *
+   * Default value is 5
+   */
+  inidicatorBorderRadius: number;
+  /**
+   * Is used to adjust horizontalPadding of each pagination indicator.
+   *
+   * Has to be a number
+   *
+   * Default value is 10
+   */
+  indicatorHorizontalPadding: number;
+  /**
+   * Is used to change backgroundColor of each pagination container.
+   *
+   * Has to be a string
+   *
+   * Default value is 'transparent'
+   */
+  paginataionBackgroundColor: string;
 }
