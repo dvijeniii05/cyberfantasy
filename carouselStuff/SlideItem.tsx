@@ -23,20 +23,7 @@ const SlideItem = ({item}: any) => {
 
   return (
     <View style={styles.container}>
-      <Animated.Image
-        source={item.img}
-        resizeMode='contain'
-        style={[
-          styles.image,
-          {
-            transform: [
-              {
-                translateY: translateYImage,
-              },
-            ],
-          },
-        ]}
-      />
+      <Image source={item.img} style={{width: '100%'}} />
 
       <View style={styles.content}>
         <Text style={styles.title}>{item.title}</Text>
