@@ -56,6 +56,7 @@ export interface CustomCarouselProps
    * Called once the last element of the Carousel is displayed
    *
    */
+  disablePagination?: boolean;
   isEndReached?: (endReached: boolean) => void;
 }
 
@@ -130,4 +131,9 @@ export interface PressablePaginationProps {
    * Default value is 'transparent'
    */
   paginataionBackgroundColor: string;
+}
+
+export interface RefProps {
+  showNextItem: () => void;
+  showPreviousItem: () => void;
 }

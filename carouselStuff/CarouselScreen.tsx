@@ -1,9 +1,20 @@
-import React from 'react';
-import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
+import React, {useRef} from 'react';
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import SlideItem from './SlideItem';
 // import CustomCarousel from './sandBox/CustomCarousel';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {RefProps} from './sandBox/Interfaces';
 import CustomCarousel from 'carousel-with-pagination-rn';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const dummyData = [
   {
@@ -32,6 +43,14 @@ const dummyData = [
 const {width, height} = Dimensions.get('screen');
 
 const CarouselScreen = () => {
+  let carouselRef = useRef<RefProps>(null);
+
+  const handleNextClick = () => {
+    carouselRef.current?.showNextItem();
+  };
+  const handlePreviousClick = () => {
+    carouselRef.current?.showPreviousItem();
+  };
   return (
     <SafeAreaView style={{flex: 1}}>
       <View
@@ -46,6 +65,7 @@ const CarouselScreen = () => {
           paginataionBackgroundColor={'blue'}
         /> */}
         <CustomCarousel
+          ref={carouselRef}
           data={dummyData}
           renderItem={({item}) => {
             return (
@@ -64,7 +84,22 @@ const CarouselScreen = () => {
               </View>
             );
           }}
+          disablePagination={true}
         />
+        <View
+          style={{
+            flexDirection: 'row',
+            width: 100,
+            justifyContent: 'space-between',
+          }}
+        >
+          <TouchableOpacity onPress={handlePreviousClick}>
+            <Text>Previous</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleNextClick}>
+            <Text>Next</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
