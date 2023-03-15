@@ -23,7 +23,7 @@ interface ItemType {
 const KnownTypePickScreen = ({navigation}: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const skinTypes = useSelector(
-    (state: RootState) => state.skinTypeSlice.skinType
+    (state: RootState) => state.skinTypeReducer.skinType
   );
 
   const renderItem: ListRenderItem<ItemType> = ({item}) => {

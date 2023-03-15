@@ -9,6 +9,7 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import {addAnswer} from '../../redux/slices/testsSlice';
 import {AppDispatch, RootState} from '../../redux/stores/mainStore';
+import {calculateSkinType} from '../../utils/testResultsCalculator';
 import {styles} from './MultipleChoiceTest.style';
 
 interface AnswerType {
@@ -17,13 +18,15 @@ interface AnswerType {
 }
 interface QuestionType {
   id: number;
-  questions: Array<AnswerType>;
+  question: string;
+  answers: Array<AnswerType>;
 }
 
 const dummyQuestions: Array<QuestionType> = [
   {
     id: 0,
-    questions: [
+    question: 'Question 1',
+    answers: [
       {id: 1, value: 'A'},
       {id: 2, value: 'B'},
       {id: 3, value: 'C'},
@@ -32,29 +35,32 @@ const dummyQuestions: Array<QuestionType> = [
   },
   {
     id: 1,
-    questions: [
-      {id: 1, value: 'AA'},
-      {id: 2, value: 'BB'},
-      {id: 3, value: 'CC'},
-      {id: 4, value: 'DD'},
+    question: 'Question 2',
+    answers: [
+      {id: 1, value: 'A'},
+      {id: 2, value: 'B'},
+      {id: 3, value: 'C'},
+      {id: 4, value: 'D'},
     ],
   },
   {
     id: 2,
-    questions: [
-      {id: 1, value: 'AAA'},
-      {id: 2, value: 'BBB'},
-      {id: 3, value: 'CCC'},
-      {id: 4, value: 'DDD'},
+    question: 'Question 3',
+    answers: [
+      {id: 1, value: 'A'},
+      {id: 2, value: 'B'},
+      {id: 3, value: 'C'},
+      {id: 4, value: 'D'},
     ],
   },
   {
     id: 3,
-    questions: [
-      {id: 1, value: 'AAAA'},
-      {id: 2, value: 'BBBB'},
-      {id: 3, value: 'CCCC'},
-      {id: 4, value: 'DDDD'},
+    question: 'Question 4',
+    answers: [
+      {id: 1, value: 'A'},
+      {id: 2, value: 'B'},
+      {id: 3, value: 'C'},
+      {id: 4, value: 'D'},
     ],
   },
 ];
@@ -69,6 +75,8 @@ const MultipleChoiceTest = () => {
   const scrollIfNotLast = (itemId: number) => {
     if (itemId === dummyQuestions.length - 1) {
       console.log('test complete');
+      //Trigger test results calculation
+      calculateSkinType(userAnswers);
     } else {
       listRef.current?.scrollToIndex({index: itemId + 1});
     }
@@ -77,7 +85,8 @@ const MultipleChoiceTest = () => {
   const renderItem = ({item}: ListRenderItemInfo<QuestionType>) => {
     return (
       <View style={styles.renderParentContainer}>
-        {item.questions.map((answer) => {
+        <Text>{item.question}</Text>
+        {item.answers.map((answer) => {
           return (
             <TouchableOpacity
               key={answer.id}

@@ -13,6 +13,8 @@ import MultipleChoiceTestScreen from '../screens/MultipleChoiceTestScreen/Multip
 import ProcedureTestScreen from '../screens/ProcedureTestScreen/ProcedureTestScreen';
 import AiTestScreen from '../screens/AiTestScreen/AiTestScreen';
 import CarouselScreen from '../../carouselStuff/CarouselScreen';
+import SteamLogin from '../../dota2Api/loginPage';
+import SteamModal from '../../dota2Api/steamModal';
 
 const Stack = createStackNavigator<StackParams>();
 
@@ -24,7 +26,12 @@ const AppDrawer = () => {
         <>
           <Stack.Screen
             name={StackScreenNames.Landing}
-            component={LandingScreen} // CHNAGE TO LANDING SCREEN
+            component={SteamLogin} // CHNAGE TO LANDING SCREEN
+          />
+          <Stack.Screen
+            name={'SteamModal'}
+            component={SteamModal}
+            options={{presentation: 'modal'}}
           />
           <Stack.Screen
             name={StackScreenNames.InitialPick}

@@ -1,6 +1,5 @@
 import React from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {COLORS} from '../../COLORS';
 export const starsCalculator = (rating?: string): number => {
   let count = 0;

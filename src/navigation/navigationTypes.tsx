@@ -22,6 +22,7 @@ export type StackParams = {
   WebView: {
     url: string;
   };
+  SteamModal: undefined;
 };
 
 export type TabParams = {
