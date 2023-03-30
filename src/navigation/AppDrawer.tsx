@@ -26,7 +26,7 @@ const AppDrawer = () => {
         <>
           <Stack.Screen
             name={StackScreenNames.Landing}
-            component={SteamLogin} // CHNAGE TO LANDING SCREEN
+            component={LandingScreen} // CHNAGE TO LANDING SCREEN
           />
           <Stack.Screen
             name={'SteamModal'}

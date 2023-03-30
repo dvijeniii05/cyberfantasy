@@ -1,6 +1,22 @@
 export const calculateSkinType = (answers: Array<string>) => {
-    console.log('ANSWERS', answers)
-switch (answers) {
-    
-}
-}
+  let a: number = 0;
+  let b: number = 0;
+  let c: number = 0;
+  let d: number = 0;
+  answers.map((ansType) => {
+    ansType === 'A' ? a++ : null;
+    ansType === 'B' ? b++ : null;
+    ansType === 'C' ? c++ : null;
+    ansType === 'D' ? d++ : null;
+  });
+
+  if (a > b + c + d) {
+    console.log('YOUR TYPE IS:', a);
+  } else if (b > a + c + d) {
+    console.log('YOUR TYPE IS:', b);
+  } else if (c > a + b + d) {
+    console.log('YOUR TYPE IS:', c);
+  } else if (d > a + b + c) {
+    console.log('YOUR TYPE IS:', d);
+  }
+};

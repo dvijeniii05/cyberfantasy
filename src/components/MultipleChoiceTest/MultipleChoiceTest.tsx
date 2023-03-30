@@ -7,63 +7,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import {
+  MultipleChoiceQuestionsData,
+  QuestionType,
+} from '../../constants/MultipleChoiceQuestionsData';
 import {addAnswer} from '../../redux/slices/testsSlice';
 import {AppDispatch, RootState} from '../../redux/stores/mainStore';
 import {calculateSkinType} from '../../utils/testResultsCalculator';
 import {styles} from './MultipleChoiceTest.style';
-
-interface AnswerType {
-  id: number;
-  value: string;
-}
-interface QuestionType {
-  id: number;
-  question: string;
-  answers: Array<AnswerType>;
-}
-
-const dummyQuestions: Array<QuestionType> = [
-  {
-    id: 0,
-    question: 'Question 1',
-    answers: [
-      {id: 1, value: 'A'},
-      {id: 2, value: 'B'},
-      {id: 3, value: 'C'},
-      {id: 4, value: 'D'},
-    ],
-  },
-  {
-    id: 1,
-    question: 'Question 2',
-    answers: [
-      {id: 1, value: 'A'},
-      {id: 2, value: 'B'},
-      {id: 3, value: 'C'},
-      {id: 4, value: 'D'},
-    ],
-  },
-  {
-    id: 2,
-    question: 'Question 3',
-    answers: [
-      {id: 1, value: 'A'},
-      {id: 2, value: 'B'},
-      {id: 3, value: 'C'},
-      {id: 4, value: 'D'},
-    ],
-  },
-  {
-    id: 3,
-    question: 'Question 4',
-    answers: [
-      {id: 1, value: 'A'},
-      {id: 2, value: 'B'},
-      {id: 3, value: 'C'},
-      {id: 4, value: 'D'},
-    ],
-  },
-];
 
 const MultipleChoiceTest = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -73,7 +24,7 @@ const MultipleChoiceTest = () => {
   const listRef = useRef<FlatList>(null);
 
   const scrollIfNotLast = (itemId: number) => {
-    if (itemId === dummyQuestions.length - 1) {
+    if (itemId === MultipleChoiceQuestionsData.length - 1) {
       console.log('test complete');
       //Trigger test results calculation
       calculateSkinType(userAnswers);
@@ -108,7 +59,7 @@ const MultipleChoiceTest = () => {
   return (
     <FlatList
       ref={listRef}
-      data={dummyQuestions}
+      data={MultipleChoiceQuestionsData}
       renderItem={renderItem}
       contentContainerStyle={{
         backgroundColor: 'red',
