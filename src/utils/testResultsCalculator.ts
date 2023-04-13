@@ -3,12 +3,15 @@ export const calculateSkinType = (answers: Array<string>) => {
   let b: number = 0;
   let c: number = 0;
   let d: number = 0;
-  answers.map((ansType) => {
+  answers.forEach((ansType) => {
     ansType === 'A' ? a++ : null;
     ansType === 'B' ? b++ : null;
     ansType === 'C' ? c++ : null;
     ansType === 'D' ? d++ : null;
   });
+  console.log('FUNCTION_HIT', a, b, c, d);
+
+  //logic below needs a rework
 
   if (a > b + c + d) {
     console.log('YOUR TYPE IS:', a);

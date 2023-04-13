@@ -25,7 +25,7 @@ const MultipleChoiceTest = () => {
 
   const scrollIfNotLast = (itemId: number) => {
     if (itemId === MultipleChoiceQuestionsData.length - 1) {
-      console.log('test complete');
+      console.log('test complete', userAnswers);
       //Trigger test results calculation
       calculateSkinType(userAnswers);
     } else {
@@ -48,7 +48,7 @@ const MultipleChoiceTest = () => {
               }}
             >
               <Text>
-                {answer.value}+{userAnswers}
+                {answer.question}+{answer.value}
               </Text>
             </TouchableOpacity>
           );

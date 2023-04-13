@@ -7,6 +7,7 @@ import {styles} from './LoadingComponent.style';
 
 interface Props {
   loadingText: string;
+  isLoading?: boolean;
 }
 
 const LoadingComponent = (props: Props) => {
@@ -14,6 +15,14 @@ const LoadingComponent = (props: Props) => {
 
   return (
     <>
+      {props.isLoading && (
+        <View style={styles.parentContainer}>
+          <View style={styles.indicatorContainer}>
+            <ActivityIndicator size={'large'} color={COLORS.primary} />
+            <Text style={styles.textContainer}>{props.loadingText}</Text>
+          </View>
+        </View>
+      )}
       {products.status === 'pending' && (
         <View style={styles.parentContainer}>
           <View style={styles.indicatorContainer}>
