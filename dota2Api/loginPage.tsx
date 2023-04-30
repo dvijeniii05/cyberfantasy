@@ -1,11 +1,660 @@
-import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {StackScreenProps} from '@react-navigation/stack';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {StackProps} from '../src/navigation/navigationTypes';
+import {StackScreenNames} from '../ScreenNames';
+import {StackParams, StackProps} from '../src/navigation/navigationTypes';
+import {dummyMatch} from './dummyData';
 
-const SteamLogin = () => {
-  const navigation = useNavigation<StackProps>();
+const dummyResponse = [
+  {
+    match_id: 7065049753,
+    player_slot: 2,
+    radiant_win: false,
+    duration: 1470,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 45,
+    start_time: 1679081451,
+    version: null,
+    kills: 14,
+    deaths: 7,
+    assists: 6,
+    skill: null,
+    average_rank: 41,
+    xp_per_min: 1656,
+    gold_per_min: 1022,
+    hero_damage: 34460,
+    tower_damage: 1337,
+    hero_healing: 1111,
+    last_hits: 113,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 185,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7065012665,
+    player_slot: 130,
+    radiant_win: false,
+    duration: 1398,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 35,
+    start_time: 1679079829,
+    version: null,
+    kills: 5,
+    deaths: 3,
+    assists: 26,
+    skill: null,
+    average_rank: 41,
+    xp_per_min: 1930,
+    gold_per_min: 1090,
+    hero_damage: 26038,
+    tower_damage: 4616,
+    hero_healing: 0,
+    last_hits: 105,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 187,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7064968334,
+    player_slot: 2,
+    radiant_win: true,
+    duration: 1713,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 126,
+    start_time: 1679077909,
+    version: null,
+    kills: 16,
+    deaths: 3,
+    assists: 16,
+    skill: null,
+    average_rank: 43,
+    xp_per_min: 1422,
+    gold_per_min: 1238,
+    hero_damage: 26353,
+    tower_damage: 3335,
+    hero_healing: 0,
+    last_hits: 74,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 192,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7054287069,
+    player_slot: 1,
+    radiant_win: true,
+    duration: 1739,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 21,
+    start_time: 1678489254,
+    version: null,
+    kills: 10,
+    deaths: 7,
+    assists: 27,
+    skill: null,
+    average_rank: 43,
+    xp_per_min: 1898,
+    gold_per_min: 1167,
+    hero_damage: 24342,
+    tower_damage: 1862,
+    hero_healing: 0,
+    last_hits: 106,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 188,
+    leaver_status: 0,
+    party_size: 4,
+  },
+  {
+    match_id: 7054264358,
+    player_slot: 2,
+    radiant_win: false,
+    duration: 1451,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 42,
+    start_time: 1678487591,
+    version: null,
+    kills: 1,
+    deaths: 2,
+    assists: 5,
+    skill: null,
+    average_rank: 43,
+    xp_per_min: 1173,
+    gold_per_min: 729,
+    hero_damage: 5362,
+    tower_damage: 743,
+    hero_healing: 0,
+    last_hits: 155,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 187,
+    leaver_status: 0,
+    party_size: 4,
+  },
+  {
+    match_id: 7054230377,
+    player_slot: 2,
+    radiant_win: true,
+    duration: 1964,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 30,
+    start_time: 1678485380,
+    version: null,
+    kills: 17,
+    deaths: 7,
+    assists: 19,
+    skill: null,
+    average_rank: 41,
+    xp_per_min: 1779,
+    gold_per_min: 1294,
+    hero_damage: 48750,
+    tower_damage: 1617,
+    hero_healing: 21325,
+    last_hits: 78,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 183,
+    leaver_status: 0,
+    party_size: 4,
+  },
+  {
+    match_id: 7054201574,
+    player_slot: 2,
+    radiant_win: true,
+    duration: 1464,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 29,
+    start_time: 1678483702,
+    version: null,
+    kills: 5,
+    deaths: 4,
+    assists: 17,
+    skill: null,
+    average_rank: 42,
+    xp_per_min: 1473,
+    gold_per_min: 963,
+    hero_damage: 16854,
+    tower_damage: 1478,
+    hero_healing: 0,
+    last_hits: 64,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 188,
+    leaver_status: 0,
+    party_size: 4,
+  },
+  {
+    match_id: 7054166213,
+    player_slot: 129,
+    radiant_win: false,
+    duration: 1645,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 23,
+    start_time: 1678481825,
+    version: null,
+    kills: 7,
+    deaths: 3,
+    assists: 29,
+    skill: null,
+    average_rank: 41,
+    xp_per_min: 1497,
+    gold_per_min: 1018,
+    hero_damage: 11441,
+    tower_damage: 1643,
+    hero_healing: 12,
+    last_hits: 71,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 185,
+    leaver_status: 0,
+    party_size: 4,
+  },
+  {
+    match_id: 7054124921,
+    player_slot: 2,
+    radiant_win: false,
+    duration: 1886,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 123,
+    start_time: 1678479742,
+    version: null,
+    kills: 9,
+    deaths: 4,
+    assists: 14,
+    skill: null,
+    average_rank: 41,
+    xp_per_min: 1692,
+    gold_per_min: 1037,
+    hero_damage: 22997,
+    tower_damage: 220,
+    hero_healing: 0,
+    last_hits: 149,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 183,
+    leaver_status: 0,
+    party_size: 4,
+  },
+  {
+    match_id: 7054078180,
+    player_slot: 132,
+    radiant_win: false,
+    duration: 1364,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 94,
+    start_time: 1678477544,
+    version: null,
+    kills: 10,
+    deaths: 3,
+    assists: 31,
+    skill: null,
+    average_rank: 41,
+    xp_per_min: 1803,
+    gold_per_min: 1262,
+    hero_damage: 30498,
+    tower_damage: 6949,
+    hero_healing: 0,
+    last_hits: 116,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 271,
+    leaver_status: 0,
+    party_size: 4,
+  },
+  {
+    match_id: 7053951441,
+    player_slot: 3,
+    radiant_win: false,
+    duration: 1925,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 138,
+    start_time: 1678472444,
+    version: null,
+    kills: 5,
+    deaths: 5,
+    assists: 13,
+    skill: null,
+    average_rank: 34,
+    xp_per_min: 1483,
+    gold_per_min: 969,
+    hero_damage: 29050,
+    tower_damage: 3646,
+    hero_healing: 0,
+    last_hits: 101,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 273,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7045691373,
+    player_slot: 1,
+    radiant_win: true,
+    duration: 2569,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 11,
+    start_time: 1678025436,
+    version: null,
+    kills: 16,
+    deaths: 7,
+    assists: 20,
+    skill: null,
+    average_rank: 41,
+    xp_per_min: 1579,
+    gold_per_min: 1878,
+    hero_damage: 66540,
+    tower_damage: 13743,
+    hero_healing: 0,
+    last_hits: 315,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 187,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7045627964,
+    player_slot: 2,
+    radiant_win: false,
+    duration: 1588,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 70,
+    start_time: 1678023600,
+    version: null,
+    kills: 8,
+    deaths: 9,
+    assists: 4,
+    skill: null,
+    average_rank: 44,
+    xp_per_min: 1456,
+    gold_per_min: 820,
+    hero_damage: 25955,
+    tower_damage: 0,
+    hero_healing: 1201,
+    last_hits: 85,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 191,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7045506655,
+    player_slot: 2,
+    radiant_win: false,
+    duration: 2611,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 35,
+    start_time: 1678019800,
+    version: null,
+    kills: 15,
+    deaths: 6,
+    assists: 17,
+    skill: null,
+    average_rank: 42,
+    xp_per_min: 1619,
+    gold_per_min: 1496,
+    hero_damage: 61832,
+    tower_damage: 15691,
+    hero_healing: 0,
+    last_hits: 274,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 272,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7045453927,
+    player_slot: 131,
+    radiant_win: true,
+    duration: 1540,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 66,
+    start_time: 1678018023,
+    version: null,
+    kills: 0,
+    deaths: 10,
+    assists: 11,
+    skill: null,
+    average_rank: 35,
+    xp_per_min: 1487,
+    gold_per_min: 514,
+    hero_damage: 7527,
+    tower_damage: 763,
+    hero_healing: 7204,
+    last_hits: 58,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 192,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7045397344,
+    player_slot: 4,
+    radiant_win: true,
+    duration: 1791,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 58,
+    start_time: 1678015983,
+    version: null,
+    kills: 12,
+    deaths: 4,
+    assists: 16,
+    skill: null,
+    average_rank: 42,
+    xp_per_min: 1659,
+    gold_per_min: 1189,
+    hero_damage: 36529,
+    tower_damage: 4503,
+    hero_healing: 5759,
+    last_hits: 94,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 272,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7042776153,
+    player_slot: 130,
+    radiant_win: false,
+    duration: 1314,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 106,
+    start_time: 1677881196,
+    version: null,
+    kills: 3,
+    deaths: 1,
+    assists: 13,
+    skill: null,
+    average_rank: 41,
+    xp_per_min: 2056,
+    gold_per_min: 1093,
+    hero_damage: 11586,
+    tower_damage: 5630,
+    hero_healing: 0,
+    last_hits: 137,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 272,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7042754895,
+    player_slot: 130,
+    radiant_win: false,
+    duration: 1239,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 94,
+    start_time: 1677879719,
+    version: null,
+    kills: 5,
+    deaths: 3,
+    assists: 15,
+    skill: null,
+    average_rank: 41,
+    xp_per_min: 1747,
+    gold_per_min: 1165,
+    hero_damage: 21024,
+    tower_damage: 5838,
+    hero_healing: 0,
+    last_hits: 108,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 273,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7042726837,
+    player_slot: 0,
+    radiant_win: false,
+    duration: 1525,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 97,
+    start_time: 1677877971,
+    version: null,
+    kills: 2,
+    deaths: 7,
+    assists: 9,
+    skill: null,
+    average_rank: 43,
+    xp_per_min: 1267,
+    gold_per_min: 784,
+    hero_damage: 12440,
+    tower_damage: 432,
+    hero_healing: 0,
+    last_hits: 93,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 274,
+    leaver_status: 0,
+    party_size: 3,
+  },
+  {
+    match_id: 7042696710,
+    player_slot: 1,
+    radiant_win: true,
+    duration: 1498,
+    game_mode: 23,
+    lobby_type: 0,
+    hero_id: 93,
+    start_time: 1677876227,
+    version: null,
+    kills: 5,
+    deaths: 5,
+    assists: 11,
+    skill: null,
+    average_rank: 44,
+    xp_per_min: 1576,
+    gold_per_min: 1074,
+    hero_damage: 9250,
+    tower_damage: 5593,
+    hero_healing: 0,
+    last_hits: 147,
+    lane: null,
+    lane_role: null,
+    is_roaming: null,
+    cluster: 271,
+    leaver_status: 0,
+    party_size: 3,
+  },
+];
+
+type ScreenProps = StackScreenProps<StackParams, StackScreenNames.Landing>;
+
+const SteamLogin = ({route, navigation}: ScreenProps) => {
+  // const navigation = useNavigation<StackProps>();
+  const {steamId} = route.params ?? 'not fetched yet';
+  // const steamId = 367396390;
+  const [kills, setKills] = useState<number>(0);
+  const [deaths, setDeaths] = useState<number>(0);
+  const [assists, setAssists] = useState<number>(0);
+  const [gpm, setGpm] = useState<number>(0);
+  const [xpm, setXpm] = useState<number>(0);
+  const [kda, setKda] = useState<number>(0);
+  let k = 0;
+  let d = 0;
+  let a = 0;
+  let matches: Array<number> = [];
+  let gpmL = 0;
+  let xpmL = 0;
+  let kdaL = 0;
+
+  const fetchMatchData = async (match_id: number) => {
+    const response = await axios.get(
+      `https://api.opendota.com/api/matches/${match_id}`,
+      {
+        headers: {
+          Authorization: `Bearer f38ae540-43eb-4422-ad90-5df913c8be6c`,
+        },
+      }
+    );
+    // console.log(response.data);
+    return response.data;
+  };
+
+  const calculateStats = async () => {
+    dummyResponse.map((match) => {
+      // console.log('MAP', kills, match.kills);
+      // k += match.kills;
+      // d += match.deaths;
+      // a += match.assists;
+      matches.push(match.match_id);
+    });
+
+    Promise.all(
+      matches.map(async (singleMatch) => {
+        const rawMatchData = await fetchMatchData(singleMatch);
+        console.log('SINGLE_MATCH', singleMatch);
+        const requiredPlayer = rawMatchData.players;
+        // console.log('REQUIRED', requiredPlayer);
+        const playerStats = requiredPlayer.filter(
+          (id: any) => id.account_id == 367396390
+        );
+        console.log('FILTERED_DATA', playerStats);
+        gpmL += playerStats[0].gold_per_min;
+        xpmL += playerStats[0].xp_per_min;
+        kdaL += playerStats[0].kda;
+      })
+    ).then(() => {
+      setGpm(gpmL);
+      setXpm(xpmL);
+      setKda(kdaL);
+    });
+    console.log(gpmL, xpmL, kdaL);
+
+    // setKills(k);
+    // setDeaths(d);
+    // setAssists(a);
+  };
+
+  // useEffect(() => {
+  //   console.log('useEffect called');
+  //   const fetchRecentMatches = async () => {
+  //     const response = await axios.get(
+  //       `https://api.opendota.com/api/players/${steamId}/recentMatches`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer f38ae540-43eb-4422-ad90-5df913c8be6c`,
+  //         },
+  //       }
+  //     );
+  //     console.log(response.data);
+  //     calculateStats(response.data);
+  //   };
+  //   if (steamId && steamId !== 'not fetched yet') fetchRecentMatches();
+  // }, [route.params]);
 
   return (
     <SafeAreaView
@@ -17,9 +666,13 @@ const SteamLogin = () => {
       }}
     >
       <View style={{height: 500, justifyContent: 'space-around'}}>
-        <Text>Steam Login</Text>
-        <TextInput />
-        <TouchableOpacity onPress={() => navigation.navigate('SteamModal')}>
+        <Text>SteamID: {steamId}</Text>
+        <Text>GPM: {gpm}</Text>
+        <Text>XPM: {xpm}</Text>
+        <Text>KDA: {kda}</Text>
+
+        {/* <TouchableOpacity onPress={() => navigation.navigate('SteamModal')}> */}
+        <TouchableOpacity onPress={calculateStats}>
           <Text>Link Steam</Text>
         </TouchableOpacity>
       </View>
